@@ -1,335 +1,97 @@
 /* =========================================================
    BLOOM & CO.
    KRISHNA'S VIRTUAL FLOWER SHOP
+   SVG FLOWER VERSION
    ========================================================= */
 
 
 /* =========================================================
-   FIXED FLOWER IMAGES
-   IMPORTANT:
-   These are FIXED images.
-   No random image generator is used.
-   ========================================================= */
-
-const FLOWER_IMAGES = {
-
-    redRose:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85",
-
-    pinkRose:
-        "https://images.unsplash.com/photo-1455659817273-f96807779d8a?auto=format&fit=crop&w=700&q=85",
-
-    whiteRose:
-        "https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=700&q=85",
-
-    yellowRose:
-        "https://images.unsplash.com/photo-1518882605630-8eb9f5a7b4f1?auto=format&fit=crop&w=700&q=85",
-
-    sunflower:
-        "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?auto=format&fit=crop&w=700&q=85",
-
-    tulip:
-        "https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=700&q=85",
-
-    lily:
-        "https://images.unsplash.com/photo-1494625927555-6ec4433b1571?auto=format&fit=crop&w=700&q=85",
-
-    orchid:
-        "https://images.unsplash.com/photo-1563770095-39d46e7d4c14?auto=format&fit=crop&w=700&q=85",
-
-    daisy:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85",
-
-    peony:
-        "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=85",
-
-    carnation:
-        "https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=700&q=85",
-
-    lavender:
-        "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=700&q=85",
-
-    lotus:
-        "https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=700&q=85",
-
-    cherry:
-        "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=700&q=85",
-
-    iris:
-        "https://images.unsplash.com/photo-1589994160839-163cd867cfe8?auto=format&fit=crop&w=700&q=85",
-
-    chrysanthemum:
-        "https://images.unsplash.com/photo-1576856497337-4fefc3f9f7c9?auto=format&fit=crop&w=700&q=85",
-
-    daffodil:
-        "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=700&q=85",
-
-    hydrangea:
-        "https://images.unsplash.com/photo-1560717845-968823efbee1?auto=format&fit=crop&w=700&q=85",
-
-    babysBreath:
-        "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=700&q=85",
-
-    freesia:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85"
-
-};
-
-
-/* =========================================================
-   ROOM I — FLOWERS
+   FLOWER DATA
    ========================================================= */
 
 const flowersRoom1 = [
 
-    {
-        name: "Red Rose",
-        meaning: "Love",
-        image: FLOWER_IMAGES.redRose
-    },
+    { name: "Red Rose", meaning: "Love", type: "rose", color: "#c94f67" },
+    { name: "Pink Rose", meaning: "Gratitude", type: "rose", color: "#e69aaa" },
+    { name: "White Rose", meaning: "Innocence", type: "rose", color: "#fff7f5" },
+    { name: "Yellow Rose", meaning: "Friendship", type: "rose", color: "#f2c94c" },
 
-    {
-        name: "Pink Rose",
-        meaning: "Gratitude",
-        image: FLOWER_IMAGES.pinkRose
-    },
+    { name: "Sunflower", meaning: "Adoration", type: "sunflower", color: "#e8ad2f" },
 
-    {
-        name: "White Rose",
-        meaning: "Innocence",
-        image: FLOWER_IMAGES.whiteRose
-    },
+    { name: "Tulip", meaning: "Perfect Love", type: "tulip", color: "#d95772" },
 
-    {
-        name: "Yellow Rose",
-        meaning: "Friendship",
-        image: FLOWER_IMAGES.yellowRose
-    },
+    { name: "White Lily", meaning: "Purity", type: "lily", color: "#fffaf0" },
 
-    {
-        name: "Sunflower",
-        meaning: "Adoration",
-        image: FLOWER_IMAGES.sunflower
-    },
+    { name: "Orchid", meaning: "Beauty", type: "orchid", color: "#a77ac5" },
 
-    {
-        name: "Tulip",
-        meaning: "Perfect Love",
-        image: FLOWER_IMAGES.tulip
-    },
+    { name: "Daisy", meaning: "Innocence", type: "daisy", color: "#fffdf3" },
 
-    {
-        name: "White Lily",
-        meaning: "Purity",
-        image: FLOWER_IMAGES.lily
-    },
+    { name: "Peony", meaning: "Prosperity", type: "peony", color: "#e88fa8" },
 
-    {
-        name: "Orchid",
-        meaning: "Beauty",
-        image: FLOWER_IMAGES.orchid
-    },
+    { name: "Carnation", meaning: "Admiration", type: "carnation", color: "#df718c" },
 
-    {
-        name: "Daisy",
-        meaning: "Innocence",
-        image: FLOWER_IMAGES.daisy
-    },
+    { name: "Lavender", meaning: "Calmness", type: "lavender", color: "#aa91c8" },
 
-    {
-        name: "Peony",
-        meaning: "Prosperity",
-        image: FLOWER_IMAGES.peony
-    },
+    { name: "Lotus", meaning: "Enlightenment", type: "lotus", color: "#e89aaa" },
 
-    {
-        name: "Carnation",
-        meaning: "Admiration",
-        image: FLOWER_IMAGES.carnation
-    },
+    { name: "Cherry Blossom", meaning: "New Beginnings", type: "cherry", color: "#f0a7bd" },
 
-    {
-        name: "Lavender",
-        meaning: "Calmness",
-        image: FLOWER_IMAGES.lavender
-    },
+    { name: "Iris", meaning: "Hope", type: "iris", color: "#7476c7" },
 
-    {
-        name: "Lotus",
-        meaning: "Enlightenment",
-        image: FLOWER_IMAGES.lotus
-    },
+    { name: "Chrysanthemum", meaning: "Friendship", type: "chrysanthemum", color: "#e7b06a" },
 
-    {
-        name: "Cherry Blossom",
-        meaning: "New Beginnings",
-        image: FLOWER_IMAGES.cherry
-    },
+    { name: "Daffodil", meaning: "New Beginnings", type: "daffodil", color: "#f4d24f" },
 
-    {
-        name: "Iris",
-        meaning: "Hope",
-        image: FLOWER_IMAGES.iris
-    },
+    { name: "Hydrangea", meaning: "Gratitude", type: "hydrangea", color: "#9b9bd0" },
 
-    {
-        name: "Chrysanthemum",
-        meaning: "Friendship",
-        image: FLOWER_IMAGES.chrysanthemum
-    },
+    { name: "Baby's Breath", meaning: "Innocence", type: "babys-breath", color: "#fffaf8" },
 
-    {
-        name: "Daffodil",
-        meaning: "New Beginnings",
-        image: FLOWER_IMAGES.daffodil
-    },
-
-    {
-        name: "Hydrangea",
-        meaning: "Gratitude",
-        image: FLOWER_IMAGES.hydrangea
-    },
-
-    {
-        name: "Baby's Breath",
-        meaning: "Innocence",
-        image: FLOWER_IMAGES.babysBreath
-    },
-
-    {
-        name: "Freesia",
-        meaning: "Trust",
-        image: FLOWER_IMAGES.freesia
-    }
+    { name: "Freesia", meaning: "Trust", type: "freesia", color: "#f2c7d0" }
 
 ];
 
 
-/* =========================================================
-   ROOM II — MORE FLOWERS
-   ========================================================= */
-
 const flowersRoom2 = [
 
-    {
-        name: "Poppy",
-        meaning: "Remembrance",
-        image: FLOWER_IMAGES.daisy
-    },
+    { name: "Poppy", meaning: "Remembrance", type: "poppy", color: "#e85b62" },
 
-    {
-        name: "Magnolia",
-        meaning: "Nobility",
-        image: FLOWER_IMAGES.whiteRose
-    },
+    { name: "Magnolia", meaning: "Nobility", type: "magnolia", color: "#f3d8df" },
 
-    {
-        name: "Zinnia",
-        meaning: "Lasting Friendship",
-        image: FLOWER_IMAGES.carnation
-    },
+    { name: "Zinnia", meaning: "Lasting Friendship", type: "zinnia", color: "#e77a91" },
 
-    {
-        name: "Bluebell",
-        meaning: "Humility",
-        image: FLOWER_IMAGES.lavender
-    },
+    { name: "Bluebell", meaning: "Humility", type: "bluebell", color: "#8b91d1" },
 
-    {
-        name: "Ranunculus",
-        meaning: "Charm",
-        image: FLOWER_IMAGES.peony
-    },
+    { name: "Ranunculus", meaning: "Charm", type: "ranunculus", color: "#f1a5a9" },
 
-    {
-        name: "Anemone",
-        meaning: "Anticipation",
-        image: FLOWER_IMAGES.orchid
-    },
+    { name: "Anemone", meaning: "Anticipation", type: "anemone", color: "#df7189" },
 
-    {
-        name: "Alstroemeria",
-        meaning: "Friendship",
-        image: FLOWER_IMAGES.tulip
-    },
+    { name: "Alstroemeria", meaning: "Friendship", type: "alstroemeria", color: "#e89bb3" },
 
-    {
-        name: "Amaryllis",
-        meaning: "Pride",
-        image: FLOWER_IMAGES.redRose
-    },
+    { name: "Amaryllis", meaning: "Pride", type: "amaryllis", color: "#d95368" },
 
-    {
-        name: "Calla Lily",
-        meaning: "Elegance",
-        image: FLOWER_IMAGES.lily
-    },
+    { name: "Calla Lily", meaning: "Elegance", type: "calla", color: "#f8eee3" },
 
-    {
-        name: "Gerbera Daisy",
-        meaning: "Cheerfulness",
-        image: FLOWER_IMAGES.sunflower
-    },
+    { name: "Gerbera Daisy", meaning: "Cheerfulness", type: "gerbera", color: "#ee8a64" },
 
-    {
-        name: "Blue Orchid",
-        meaning: "Mystery",
-        image: FLOWER_IMAGES.orchid
-    },
+    { name: "Blue Orchid", meaning: "Mystery", type: "orchid", color: "#6f83c7" },
 
-    {
-        name: "Snapdragon",
-        meaning: "Grace",
-        image: FLOWER_IMAGES.carnation
-    },
+    { name: "Snapdragon", meaning: "Grace", type: "snapdragon", color: "#d986a0" },
 
-    {
-        name: "Stock",
-        meaning: "Lasting Beauty",
-        image: FLOWER_IMAGES.freesia
-    },
+    { name: "Stock", meaning: "Lasting Beauty", type: "stock", color: "#c797c9" },
 
-    {
-        name: "Heather",
-        meaning: "Solitude",
-        image: FLOWER_IMAGES.lavender
-    },
+    { name: "Heather", meaning: "Solitude", type: "heather", color: "#9d83b9" },
 
-    {
-        name: "Purple Tulip",
-        meaning: "Royalty",
-        image: FLOWER_IMAGES.tulip
-    },
+    { name: "Purple Tulip", meaning: "Royalty", type: "tulip", color: "#8062a9" },
 
-    {
-        name: "Yarrow",
-        meaning: "Healing",
-        image: FLOWER_IMAGES.babysBreath
-    },
+    { name: "Yarrow", meaning: "Healing", type: "yarrow", color: "#e6c48b" },
 
-    {
-        name: "Queen Anne's Lace",
-        meaning: "Sanctuary",
-        image: FLOWER_IMAGES.babysBreath
-    },
+    { name: "Queen Anne's Lace", meaning: "Sanctuary", type: "lace", color: "#fffaf4" },
 
-    {
-        name: "Garden Rose",
-        meaning: "Grace",
-        image: FLOWER_IMAGES.pinkRose
-    },
+    { name: "Garden Rose", meaning: "Grace", type: "rose", color: "#d9869b" },
 
-    {
-        name: "Cosmos",
-        meaning: "Harmony",
-        image: FLOWER_IMAGES.daisy
-    },
+    { name: "Cosmos", meaning: "Harmony", type: "cosmos", color: "#d68da9" },
 
-    {
-        name: "Hibiscus",
-        meaning: "Delicate Beauty",
-        image: FLOWER_IMAGES.redRose
-    }
+    { name: "Hibiscus", meaning: "Delicate Beauty", type: "hibiscus", color: "#e66f91" }
 
 ];
 
@@ -340,53 +102,21 @@ const flowersRoom2 = [
 
 const greenery = [
 
-    {
-        name: "Eucalyptus",
-        image:
-            "https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Eucalyptus", type: "eucalyptus", color: "#91ad91" },
 
-    {
-        name: "Fern",
-        image:
-            "https://images.unsplash.com/photo-1525498128493-380d1990a112?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Fern", type: "fern", color: "#668c68" },
 
-    {
-        name: "Baby's Breath",
-        image:
-            FLOWER_IMAGES.babysBreath
-    },
+    { name: "Baby's Breath", type: "baby-green", color: "#dce8d8" },
 
-    {
-        name: "Olive Branch",
-        image:
-            "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Olive Branch", type: "olive", color: "#879b72" },
 
-    {
-        name: "Ivy",
-        image:
-            "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Ivy", type: "ivy", color: "#668968" },
 
-    {
-        name: "Ruscus",
-        image:
-            "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Ruscus", type: "ruscus", color: "#718f6c" },
 
-    {
-        name: "Mint",
-        image:
-            "https://images.unsplash.com/photo-1628556270448-4d4e4148e1e8?auto=format&fit=crop&w=600&q=80"
-    },
+    { name: "Mint", type: "mint", color: "#91b99b" },
 
-    {
-        name: "Pampas Grass",
-        image:
-            "https://images.unsplash.com/photo-1592215572446-5f5d3f9b9e0d?auto=format&fit=crop&w=600&q=80"
-    }
+    { name: "Pampas Grass", type: "pampas", color: "#d8c6a9" }
 
 ];
 
@@ -441,7 +171,7 @@ const ribbons = [
 
 
 /* =========================================================
-   WRAPPING PAPER
+   WRAPPING
    ========================================================= */
 
 const wrapping = [
@@ -510,10 +240,6 @@ const bouquet = {
    ROOMS
    ========================================================= */
 
-let currentRoom = 0;
-
-const totalRooms = 7;
-
 const rooms =
     document.querySelectorAll(".shop-room");
 
@@ -527,13 +253,16 @@ const toast =
     document.getElementById("toast");
 
 
+const totalRooms = 7;
+
+
 /* =========================================================
    ROOM NAVIGATION
    ========================================================= */
 
 function goToRoom(roomNumber) {
 
-    rooms.forEach((room) => {
+    rooms.forEach(room => {
 
         room.classList.remove("active");
 
@@ -551,37 +280,720 @@ function goToRoom(roomNumber) {
 
     target.classList.add("active");
 
-    currentRoom = roomNumber;
-
 
     const progress =
         (roomNumber / (totalRooms - 1)) * 100;
 
 
-    if (progressFill) {
-
-        progressFill.style.width =
-            `${progress}%`;
-
-    }
+    progressFill.style.width =
+        `${progress}%`;
 
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
-
-
-    updateAllCounts();
 
 }
 
 
 /* =========================================================
-   TOTAL FLOWERS
+   SVG HELPER
+   ========================================================= */
+
+function svgWrap(content, viewBox = "0 0 100 100") {
+
+    return `
+        <svg
+            viewBox="${viewBox}"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            ${content}
+        </svg>
+    `;
+
+}
+
+
+/* =========================================================
+   FLOWER SVG GENERATOR
+   ========================================================= */
+
+function flowerSVG(type, color) {
+
+    const center =
+        `<circle cx="50" cy="50" r="9" fill="#d49b48"/>`;
+
+
+    const petal =
+        (cx, cy, rx, ry, rotation = 0) => `
+            <ellipse
+                cx="${cx}"
+                cy="${cy}"
+                rx="${rx}"
+                ry="${ry}"
+                fill="${color}"
+                transform="rotate(${rotation} ${cx} ${cy})"
+            />
+        `;
+
+
+    let content = "";
+
+
+    /* ROSE */
+
+    if (type === "rose") {
+
+        content = `
+
+            ${petal(50, 25, 15, 25)}
+            ${petal(70, 38, 22, 14, 55)}
+            ${petal(67, 63, 22, 14, 120)}
+            ${petal(50, 75, 15, 25)}
+            ${petal(33, 63, 22, 14, -120)}
+            ${petal(30, 38, 22, 14, -55)}
+
+            <circle
+                cx="50"
+                cy="50"
+                r="18"
+                fill="${color}"
+            />
+
+            <path
+                d="M38 48 C45 36 62 39 62 50 C62 61 45 64 39 53"
+                fill="none"
+                stroke="#fff"
+                stroke-opacity=".35"
+                stroke-width="3"
+            />
+
+        `;
+
+    }
+
+
+    /* SUNFLOWER */
+
+    else if (type === "sunflower") {
+
+        for (let i = 0; i < 12; i++) {
+
+            const angle =
+                i * 30;
+
+            content += `
+                <ellipse
+                    cx="50"
+                    cy="23"
+                    rx="8"
+                    ry="24"
+                    fill="${color}"
+                    transform="rotate(${angle} 50 50)"
+                />
+            `;
+
+        }
+
+        content += `
+            <circle
+                cx="50"
+                cy="50"
+                r="18"
+                fill="#70462e"
+            />
+
+            <circle
+                cx="45"
+                cy="45"
+                r="3"
+                fill="#a8783b"
+            />
+
+            <circle
+                cx="57"
+                cy="53"
+                r="3"
+                fill="#a8783b"
+            />
+        `;
+
+    }
+
+
+    /* TULIP */
+
+    else if (type === "tulip") {
+
+        content = `
+
+            <path
+                d="
+                    M20 35
+                    C28 15 39 25 50 35
+                    C61 25 72 15 80 35
+                    C80 70 66 82 50 82
+                    C34 82 20 70 20 35
+                    Z
+                "
+                fill="${color}"
+            />
+
+            <path
+                d="
+                    M20 35
+                    C30 47 39 48 50 35
+                    C61 48 70 47 80 35
+                "
+                fill="none"
+                stroke="#ffffff"
+                stroke-opacity=".3"
+                stroke-width="3"
+            />
+
+        `;
+
+    }
+
+
+    /* LILY */
+
+    else if (type === "lily") {
+
+        content = `
+
+            ${petal(50, 23, 13, 31, 0)}
+            ${petal(73, 37, 14, 27, 55)}
+            ${petal(67, 65, 14, 27, 120)}
+            ${petal(33, 65, 14, 27, -120)}
+            ${petal(27, 37, 14, 27, -55)}
+
+            <circle
+                cx="50"
+                cy="50"
+                r="8"
+                fill="#d59c56"
+            />
+
+        `;
+
+    }
+
+
+    /* DAISY / GERBERA */
+
+    else if (
+        type === "daisy" ||
+        type === "gerbera"
+    ) {
+
+        const petalCount =
+            type === "gerbera" ? 18 : 12;
+
+
+        for (
+            let i = 0;
+            i < petalCount;
+            i++
+        ) {
+
+            const angle =
+                i * (360 / petalCount);
+
+
+            content += `
+                <ellipse
+                    cx="50"
+                    cy="24"
+                    rx="8"
+                    ry="25"
+                    fill="${color}"
+                    transform="
+                        rotate(${angle} 50 50)
+                    "
+                />
+            `;
+
+        }
+
+
+        content += center;
+
+    }
+
+
+    /* ORCHID */
+
+    else if (type === "orchid") {
+
+        content = `
+
+            ${petal(50, 27, 13, 23)}
+            ${petal(72, 39, 20, 12, 60)}
+            ${petal(67, 66, 19, 12, 120)}
+            ${petal(33, 66, 19, 12, -120)}
+            ${petal(28, 39, 20, 12, -60)}
+
+            <circle
+                cx="50"
+                cy="52"
+                r="11"
+                fill="#f4c6d3"
+            />
+
+            <circle
+                cx="50"
+                cy="52"
+                r="4"
+                fill="#c47a96"
+            />
+
+        `;
+
+    }
+
+
+    /* PEONY */
+
+    else if (type === "peony") {
+
+        content = `
+
+            ${petal(50, 27, 18, 22)}
+            ${petal(70, 38, 21, 17, 50)}
+            ${petal(68, 62, 21, 17, 110)}
+            ${petal(50, 73, 18, 22)}
+            ${petal(32, 62, 21, 17, -110)}
+            ${petal(30, 38, 21, 17, -50)}
+
+            <circle
+                cx="50"
+                cy="50"
+                r="20"
+                fill="${color}"
+            />
+
+            <circle
+                cx="43"
+                cy="46"
+                r="7"
+                fill="#ffffff"
+                fill-opacity=".22"
+            />
+
+        `;
+
+    }
+
+
+    /* LOTUS */
+
+    else if (type === "lotus") {
+
+        content = `
+
+            <path
+                d="M50 76 C25 67 23 48 30 34 C40 42 48 52 50 76"
+                fill="${color}"
+            />
+
+            <path
+                d="M50 76 C75 67 77 48 70 34 C60 42 52 52 50 76"
+                fill="${color}"
+            />
+
+            <path
+                d="M50 76 C38 62 38 37 50 22 C62 37 62 62 50 76"
+                fill="${color}"
+            />
+
+            <path
+                d="M30 58 C40 65 45 69 50 76 C55 69 60 65 70 58"
+                fill="${color}"
+            />
+
+        `;
+
+    }
+
+
+    /* IRIS */
+
+    else if (type === "iris") {
+
+        content = `
+
+            ${petal(50, 26, 15, 28)}
+            ${petal(72, 40, 20, 13, 55)}
+            ${petal(64, 66, 22, 12, 120)}
+            ${petal(36, 66, 22, 12, -120)}
+            ${petal(28, 40, 20, 13, -55)}
+
+            <circle
+                cx="50"
+                cy="52"
+                r="8"
+                fill="#f1c66c"
+            />
+
+        `;
+
+    }
+
+
+    /* CHERRY BLOSSOM */
+
+    else if (type === "cherry") {
+
+        for (let i = 0; i < 5; i++) {
+
+            const angle =
+                i * 72;
+
+
+            const x =
+                50 + Math.cos(angle * Math.PI / 180) * 22;
+
+
+            const y =
+                50 + Math.sin(angle * Math.PI / 180) * 22;
+
+
+            content += `
+                <circle
+                    cx="${x}"
+                    cy="${y}"
+                    r="16"
+                    fill="${color}"
+                />
+            `;
+
+        }
+
+
+        content += `
+            <circle
+                cx="50"
+                cy="50"
+                r="8"
+                fill="#d49b48"
+            />
+        `;
+
+    }
+
+
+    /* HYDRANGEA */
+
+    else if (type === "hydrangea") {
+
+        for (let i = 0; i < 9; i++) {
+
+            const angle =
+                i * 40;
+
+
+            const x =
+                50 + Math.cos(angle * Math.PI / 180) * 25;
+
+
+            const y =
+                50 + Math.sin(angle * Math.PI / 180) * 25;
+
+
+            content += `
+
+                <circle
+                    cx="${x}"
+                    cy="${y}"
+                    r="14"
+                    fill="${color}"
+                />
+
+                <circle
+                    cx="${x}"
+                    cy="${y}"
+                    r="4"
+                    fill="#f4d6df"
+                />
+
+            `;
+
+        }
+
+    }
+
+
+    /* BABY'S BREATH */
+
+    else if (type === "babys-breath") {
+
+        content = `
+
+            <path
+                d="M50 90 C50 65 50 45 50 25"
+                stroke="#7d9b7b"
+                stroke-width="3"
+                fill="none"
+            />
+
+            <path
+                d="M50 55 L30 38 M50 48 L70 30 M50 68 L30 58 M50 65 L72 52"
+                stroke="#7d9b7b"
+                stroke-width="2"
+                fill="none"
+            />
+
+            <g fill="#fffaf8">
+
+                <circle cx="28" cy="36" r="7"/>
+                <circle cx="70" cy="28" r="7"/>
+                <circle cx="28" cy="57" r="7"/>
+                <circle cx="73" cy="50" r="7"/>
+                <circle cx="50" cy="23" r="7"/>
+
+            </g>
+
+        `;
+
+    }
+
+
+    /* SIMPLE SMALL FLOWERS */
+
+    else {
+
+        for (let i = 0; i < 8; i++) {
+
+            const angle =
+                i * 45;
+
+
+            content += `
+                <ellipse
+                    cx="50"
+                    cy="25"
+                    rx="11"
+                    ry="22"
+                    fill="${color}"
+                    transform="
+                        rotate(${angle} 50 50)
+                    "
+                />
+            `;
+
+        }
+
+
+        content += center;
+
+    }
+
+
+    return svgWrap(content);
+
+}
+
+
+/* =========================================================
+   GREENERY SVG
+   ========================================================= */
+
+function greenerySVG(type, color) {
+
+    let content = "";
+
+
+    if (
+        type === "eucalyptus" ||
+        type === "olive" ||
+        type === "mint"
+    ) {
+
+        content = `
+
+            <path
+                d="M50 92 C48 65 52 42 50 12"
+                stroke="#657d62"
+                stroke-width="3"
+                fill="none"
+            />
+
+            <ellipse
+                cx="38"
+                cy="30"
+                rx="13"
+                ry="7"
+                fill="${color}"
+                transform="rotate(-25 38 30)"
+            />
+
+            <ellipse
+                cx="64"
+                cy="42"
+                rx="13"
+                ry="7"
+                fill="${color}"
+                transform="rotate(25 64 42)"
+            />
+
+            <ellipse
+                cx="37"
+                cy="54"
+                rx="13"
+                ry="7"
+                fill="${color}"
+                transform="rotate(-25 37 54)"
+            />
+
+            <ellipse
+                cx="65"
+                cy="67"
+                rx="13"
+                ry="7"
+                fill="${color}"
+                transform="rotate(25 65 67)"
+            />
+
+            <ellipse
+                cx="43"
+                cy="76"
+                rx="12"
+                ry="6"
+                fill="${color}"
+                transform="rotate(-20 43 76)"
+            />
+
+        `;
+
+    }
+
+
+    else if (
+        type === "fern" ||
+        type === "ruscus"
+    ) {
+
+        content = `
+
+            <path
+                d="M50 94 C50 65 49 40 50 8"
+                stroke="#597558"
+                stroke-width="3"
+                fill="none"
+            />
+
+            <path
+                d="M50 22 L28 14
+                   M50 30 L72 21
+                   M50 39 L25 32
+                   M50 48 L75 40
+                   M50 58 L22 52
+                   M50 68 L77 60
+                   M50 78 L28 72"
+                stroke="${color}"
+                stroke-width="5"
+                fill="none"
+            />
+
+        `;
+
+    }
+
+
+    else if (type === "ivy") {
+
+        content = `
+
+            <path
+                d="M50 90
+                   C25 70 35 48 62 45
+                   C78 43 78 25 62 14"
+                stroke="#5f805e"
+                stroke-width="4"
+                fill="none"
+            />
+
+            <circle cx="38" cy="65" r="10" fill="${color}"/>
+            <circle cx="51" cy="53" r="10" fill="${color}"/>
+            <circle cx="65" cy="44" r="10" fill="${color}"/>
+            <circle cx="68" cy="26" r="9" fill="${color}"/>
+
+        `;
+
+    }
+
+
+    else if (type === "pampas") {
+
+        content = `
+
+            <path
+                d="M50 92 C48 55 43 32 34 8"
+                stroke="#9a886e"
+                stroke-width="3"
+                fill="none"
+            />
+
+            <path
+                d="M50 92 C52 55 57 30 67 7"
+                stroke="#9a886e"
+                stroke-width="3"
+                fill="none"
+            />
+
+            <ellipse
+                cx="32"
+                cy="15"
+                rx="11"
+                ry="20"
+                fill="${color}"
+                opacity=".8"
+            />
+
+            <ellipse
+                cx="68"
+                cy="14"
+                rx="11"
+                ry="20"
+                fill="${color}"
+                opacity=".8"
+            />
+
+        `;
+
+    }
+
+
+    else {
+
+        content = `
+
+            <path
+                d="M50 92 C50 65 50 40 50 12"
+                stroke="#779274"
+                stroke-width="3"
+            />
+
+            <circle cx="35" cy="35" r="10" fill="${color}"/>
+            <circle cx="65" cy="42" r="10" fill="${color}"/>
+            <circle cx="38" cy="58" r="10" fill="${color}"/>
+            <circle cx="64" cy="65" r="10" fill="${color}"/>
+
+        `;
+
+    }
+
+
+    return svgWrap(content);
+
+}
+
+
+/* =========================================================
+   TOTAL COUNTS
    ========================================================= */
 
 function getTotalFlowers() {
@@ -597,10 +1009,6 @@ function getTotalFlowers() {
 }
 
 
-/* =========================================================
-   TOTAL GREENERY
-   ========================================================= */
-
 function getTotalGreenery() {
 
     return Object.values(
@@ -615,65 +1023,10 @@ function getTotalGreenery() {
 
 
 /* =========================================================
-   COUNTERS
-   ========================================================= */
-
-function updateAllCounts() {
-
-    const flowers =
-        getTotalFlowers();
-
-    const green =
-        getTotalGreenery();
-
-
-    if (basketCount) {
-
-        basketCount.textContent =
-            flowers + green;
-
-    }
-
-
-    const room1 =
-        document.getElementById(
-            "room1-count"
-        );
-
-    const room2 =
-        document.getElementById(
-            "room2-count"
-        );
-
-    const greeneryCount =
-        document.getElementById(
-            "greenery-count"
-        );
-
-
-    if (room1)
-        room1.textContent = flowers;
-
-    if (room2)
-        room2.textContent = flowers;
-
-    if (greeneryCount)
-        greeneryCount.textContent = green;
-
-
-    updateBasketPopup();
-
-}
-
-
-/* =========================================================
    TOAST
    ========================================================= */
 
 function showToast(message) {
-
-    if (!toast) return;
-
 
     toast.textContent =
         message;
@@ -688,13 +1041,65 @@ function showToast(message) {
 
 
     window.toastTimer =
-        setTimeout(() => {
+        setTimeout(
+            () => {
+                toast.classList.remove("show");
+            },
+            1800
+        );
 
-            toast.classList.remove(
-                "show"
-            );
+}
 
-        }, 1800);
+
+/* =========================================================
+   UPDATE COUNTERS
+   ========================================================= */
+
+function updateAllCounts() {
+
+    const flowers =
+        getTotalFlowers();
+
+
+    const green =
+        getTotalGreenery();
+
+
+    basketCount.textContent =
+        flowers + green;
+
+
+    const room1 =
+        document.getElementById(
+            "room1-count"
+        );
+
+
+    const room2 =
+        document.getElementById(
+            "room2-count"
+        );
+
+
+    const greenCount =
+        document.getElementById(
+            "greenery-count"
+        );
+
+
+    if (room1)
+        room1.textContent = flowers;
+
+
+    if (room2)
+        room2.textContent = flowers;
+
+
+    if (greenCount)
+        greenCount.textContent = green;
+
+
+    updateBasketPopup();
 
 }
 
@@ -704,39 +1109,32 @@ function showToast(message) {
    ========================================================= */
 
 function createFlowerCard(
-    flower,
-    index
+    flower
 ) {
 
     const card =
-        document.createElement(
-            "article"
-        );
+        document.createElement("article");
 
 
     card.className =
         "flower-card";
 
 
-    card.dataset.name =
-        flower.name;
-
-
     card.innerHTML = `
 
-        <div class="flower-photo">
+        <div class="flower-photo svg-flower-photo">
 
-            <img
-                src="${flower.image}"
-                alt="${flower.name}"
-                loading="lazy"
-            >
+            ${flowerSVG(
+                flower.type,
+                flower.color
+            )}
 
             <div class="flower-quantity">
                 0
             </div>
 
         </div>
+
 
         <div class="flower-info">
 
@@ -750,10 +1148,10 @@ function createFlowerCard(
 
         </div>
 
+
         <button
             type="button"
             class="flower-add"
-            aria-label="Add ${flower.name}"
         >
             +
         </button>
@@ -761,13 +1159,13 @@ function createFlowerCard(
     `;
 
 
-    const addButton =
+    const button =
         card.querySelector(
             ".flower-add"
         );
 
 
-    addButton.addEventListener(
+    button.addEventListener(
         "click",
         () => {
 
@@ -807,12 +1205,11 @@ function loadFlowers(
 
 
     flowers.forEach(
-        (flower, index) => {
+        flower => {
 
             container.appendChild(
                 createFlowerCard(
-                    flower,
-                    index
+                    flower
                 )
             );
 
@@ -843,7 +1240,9 @@ function addFlower(
 
             meaning: flower.meaning,
 
-            image: flower.image,
+            type: flower.type,
+
+            color: flower.color,
 
             quantity: 0
 
@@ -855,9 +1254,18 @@ function addFlower(
     bouquet.flowers[key].quantity++;
 
 
-    updateFlowerCard(
-        card,
-        bouquet.flowers[key].quantity
+    const quantity =
+        card.querySelector(
+            ".flower-quantity"
+        );
+
+
+    quantity.textContent =
+        bouquet.flowers[key].quantity;
+
+
+    card.classList.add(
+        "has-flower"
     );
 
 
@@ -872,38 +1280,7 @@ function addFlower(
 
 
 /* =========================================================
-   UPDATE FLOWER CARD
-   ========================================================= */
-
-function updateFlowerCard(
-    card,
-    quantity
-) {
-
-    const quantityBox =
-        card.querySelector(
-            ".flower-quantity"
-        );
-
-
-    if (quantityBox) {
-
-        quantityBox.textContent =
-            quantity;
-
-    }
-
-
-    card.classList.toggle(
-        "has-flower",
-        quantity > 0
-    );
-
-}
-
-
-/* =========================================================
-   GREENERY
+   GREENERY CARDS
    ========================================================= */
 
 function loadGreenery() {
@@ -921,7 +1298,7 @@ function loadGreenery() {
 
 
     greenery.forEach(
-        (item) => {
+        item => {
 
             const card =
                 document.createElement(
@@ -935,13 +1312,12 @@ function loadGreenery() {
 
             card.innerHTML = `
 
-                <div class="greenery-photo">
+                <div class="greenery-photo svg-greenery-photo">
 
-                    <img
-                        src="${item.image}"
-                        alt="${item.name}"
-                        loading="lazy"
-                    >
+                    ${greenerySVG(
+                        item.type,
+                        item.color
+                    )}
 
                     <span
                         class="greenery-quantity"
@@ -951,6 +1327,7 @@ function loadGreenery() {
 
                 </div>
 
+
                 <div class="greenery-info">
 
                     <h3>
@@ -959,10 +1336,10 @@ function loadGreenery() {
 
                 </div>
 
+
                 <button
                     type="button"
                     class="greenery-add"
-                    aria-label="Add ${item.name}"
                 >
                     +
                 </button>
@@ -970,13 +1347,9 @@ function loadGreenery() {
             `;
 
 
-            const button =
-                card.querySelector(
-                    ".greenery-add"
-                );
-
-
-            button.addEventListener(
+            card.querySelector(
+                ".greenery-add"
+            ).addEventListener(
                 "click",
                 () => {
 
@@ -1018,7 +1391,9 @@ function addGreenery(
 
             name: item.name,
 
-            image: item.image,
+            type: item.type,
+
+            color: item.color,
 
             quantity: 0
 
@@ -1030,13 +1405,9 @@ function addGreenery(
     bouquet.greenery[key].quantity++;
 
 
-    const quantity =
-        card.querySelector(
-            ".greenery-quantity"
-        );
-
-
-    quantity.textContent =
+    card.querySelector(
+        ".greenery-quantity"
+    ).textContent =
         bouquet.greenery[key].quantity;
 
 
@@ -1074,7 +1445,7 @@ function loadRibbons() {
 
 
     ribbons.forEach(
-        (ribbon) => {
+        ribbon => {
 
             const card =
                 document.createElement(
@@ -1082,7 +1453,9 @@ function loadRibbons() {
                 );
 
 
-            card.type = "button";
+            card.type =
+                "button";
+
 
             card.className =
                 "ribbon-card";
@@ -1096,18 +1469,17 @@ function loadRibbons() {
 
             card.innerHTML = `
 
-                <span
-                    class="ribbon-visual"
-                    style="
-                        color:${ribbon.color};
-                    "
-                ></span>
+                <span class="ribbon-bow-preview">
 
-                <span
-                    class="ribbon-name"
-                >
-                    ${ribbon.name}
+                    <span></span>
+                    <span></span>
+                    <b></b>
+
                 </span>
+
+                <strong>
+                    ${ribbon.name}
+                </strong>
 
             `;
 
@@ -1149,7 +1521,7 @@ function chooseRibbon(
             ".ribbon-card"
         )
         .forEach(
-            (item) => {
+            item => {
 
                 item.classList.remove(
                     "selected"
@@ -1174,33 +1546,26 @@ function chooseRibbon(
         );
 
 
-    if (chosen) {
+    chosen.innerHTML = `
 
-        chosen.innerHTML = `
+        <span
+            class="chosen-ribbon-preview"
+            style="
+                --chosen-ribbon:${ribbon.color};
+            "
+        >
+            🎀
+        </span>
 
-            <span
-                style="
-                    display:inline-block;
-                    width:24px;
-                    height:24px;
-                    border-radius:50%;
-                    background:${ribbon.color};
-                    vertical-align:middle;
-                    margin-right:8px;
-                "
-            ></span>
+        <strong>
+            ${ribbon.name}
+        </strong>
 
-            <strong>
-                ${ribbon.name}
-            </strong>
+        <span>
+            ribbon selected
+        </span>
 
-            <span>
-                ribbon selected
-            </span>
-
-        `;
-
-    }
+    `;
 
 
     showToast(
@@ -1229,7 +1594,7 @@ function loadWrapping() {
 
 
     wrapping.forEach(
-        (paper) => {
+        paper => {
 
             const card =
                 document.createElement(
@@ -1237,7 +1602,9 @@ function loadWrapping() {
                 );
 
 
-            card.type = "button";
+            card.type =
+                "button";
+
 
             card.className =
                 "wrapping-card";
@@ -1251,13 +1618,11 @@ function loadWrapping() {
 
             card.innerHTML = `
 
-                <span
-                    class="paper-sample"
-                ></span>
+                <span class="paper-sample"></span>
 
-                <span>
+                <strong>
                     ${paper.name}
-                </span>
+                </strong>
 
             `;
 
@@ -1299,7 +1664,7 @@ function chooseWrapping(
             ".wrapping-card"
         )
         .forEach(
-            (item) => {
+            item => {
 
                 item.classList.remove(
                     "selected"
@@ -1324,34 +1689,24 @@ function chooseWrapping(
         );
 
 
-    if (chosen) {
+    chosen.innerHTML = `
 
-        chosen.innerHTML = `
+        <span
+            class="chosen-paper"
+            style="
+                background:${paper.color};
+            "
+        ></span>
 
-            <span
-                class="chosen-paper"
-                style="
-                    display:inline-block;
-                    width:24px;
-                    height:24px;
-                    border-radius:6px;
-                    background:${paper.color};
-                    vertical-align:middle;
-                    margin-right:8px;
-                "
-            ></span>
+        <strong>
+            ${paper.name}
+        </strong>
 
-            <strong>
-                ${paper.name}
-            </strong>
+        <span>
+            wrapping selected
+        </span>
 
-            <span>
-                wrapping selected
-            </span>
-
-        `;
-
-    }
+    `;
 
 
     showToast(
@@ -1371,6 +1726,7 @@ function updateBasketPopup() {
         document.getElementById(
             "basket-items"
         );
+
 
     const total =
         document.getElementById(
@@ -1401,25 +1757,27 @@ function updateBasketPopup() {
         container.innerHTML =
             "<p>Nothing yet... 🌱</p>";
 
-    } else {
+    }
+
+    else {
 
         container.innerHTML = "";
 
 
         flowerEntries.forEach(
-            (flower) => {
+            flower => {
 
-                const item =
+                const row =
                     document.createElement(
                         "div"
                     );
 
 
-                item.className =
+                row.className =
                     "basket-item";
 
 
-                item.innerHTML = `
+                row.innerHTML = `
 
                     <span>
                         ${flower.name}
@@ -1433,7 +1791,7 @@ function updateBasketPopup() {
 
 
                 container.appendChild(
-                    item
+                    row
                 );
 
             }
@@ -1441,33 +1799,33 @@ function updateBasketPopup() {
 
 
         greeneryEntries.forEach(
-            (itemData) => {
+            item => {
 
-                const item =
+                const row =
                     document.createElement(
                         "div"
                     );
 
 
-                item.className =
+                row.className =
                     "basket-item";
 
 
-                item.innerHTML = `
+                row.innerHTML = `
 
                     <span>
-                        ${itemData.name}
+                        ${item.name}
                     </span>
 
                     <strong>
-                        × ${itemData.quantity}
+                        × ${item.quantity}
                     </strong>
 
                 `;
 
 
                 container.appendChild(
-                    item
+                    row
                 );
 
             }
@@ -1476,30 +1834,20 @@ function updateBasketPopup() {
     }
 
 
-    if (total) {
-
-        total.textContent =
-            getTotalFlowers() +
-            getTotalGreenery();
-
-    }
+    total.textContent =
+        getTotalFlowers() +
+        getTotalGreenery();
 
 }
 
 
 /* =========================================================
-   BASKET OPEN
+   BASKET OPEN/CLOSE
    ========================================================= */
 
-const basketButton =
-    document.getElementById(
-        "basket-button"
-    );
-
-
-if (basketButton) {
-
-    basketButton.addEventListener(
+document
+    .getElementById("basket-button")
+    .addEventListener(
         "click",
         () => {
 
@@ -1514,22 +1862,10 @@ if (basketButton) {
         }
     );
 
-}
 
-
-/* =========================================================
-   BASKET CLOSE
-   ========================================================= */
-
-const closeBasket =
-    document.getElementById(
-        "close-basket"
-    );
-
-
-if (closeBasket) {
-
-    closeBasket.addEventListener(
+document
+    .getElementById("close-basket")
+    .addEventListener(
         "click",
         () => {
 
@@ -1544,22 +1880,14 @@ if (closeBasket) {
         }
     );
 
-}
-
 
 /* =========================================================
    ENTER SHOP
    ========================================================= */
 
-const enterShop =
-    document.getElementById(
-        "enter-shop"
-    );
-
-
-if (enterShop) {
-
-    enterShop.addEventListener(
+document
+    .getElementById("enter-shop")
+    .addEventListener(
         "click",
         () => {
 
@@ -1568,18 +1896,14 @@ if (enterShop) {
         }
     );
 
-}
-
 
 /* =========================================================
-   ROOM 1 → ROOM 2
+   ROOM BUTTONS
    ========================================================= */
 
 document
-    .getElementById(
-        "room1-next"
-    )
-    ?.addEventListener(
+    .getElementById("room1-next")
+    .addEventListener(
         "click",
         () => {
 
@@ -1589,15 +1913,9 @@ document
     );
 
 
-/* =========================================================
-   ROOM 2 → ROOM 3
-   ========================================================= */
-
 document
-    .getElementById(
-        "room2-next"
-    )
-    ?.addEventListener(
+    .getElementById("room2-next")
+    .addEventListener(
         "click",
         () => {
 
@@ -1607,15 +1925,9 @@ document
     );
 
 
-/* =========================================================
-   ROOM 3 → ROOM 4
-   ========================================================= */
-
 document
-    .getElementById(
-        "room3-next"
-    )
-    ?.addEventListener(
+    .getElementById("room3-next")
+    .addEventListener(
         "click",
         () => {
 
@@ -1625,15 +1937,9 @@ document
     );
 
 
-/* =========================================================
-   ROOM 4 → ROOM 5
-   ========================================================= */
-
 document
-    .getElementById(
-        "room4-next"
-    )
-    ?.addEventListener(
+    .getElementById("room4-next")
+    .addEventListener(
         "click",
         () => {
 
@@ -1654,15 +1960,9 @@ document
     );
 
 
-/* =========================================================
-   ROOM 5 → FINAL
-   ========================================================= */
-
 document
-    .getElementById(
-        "room5-next"
-    )
-    ?.addEventListener(
+    .getElementById("room5-next")
+    .addEventListener(
         "click",
         () => {
 
@@ -1692,199 +1992,11 @@ document
 
             buildFinalBouquet();
 
+
             goToRoom(6);
 
         }
     );
-
-
-/* =========================================================
-   CREATE FINAL FLOWER
-   ========================================================= */
-
-function createFinalFlower(
-    flower,
-    index,
-    total
-) {
-
-    const image =
-        document.createElement(
-            "img"
-        );
-
-
-    image.src =
-        flower.image;
-
-    image.alt =
-        flower.name;
-
-    image.className =
-        "final-flower-image";
-
-
-    /*
-       Arrange flowers in a natural
-       bouquet fan.
-
-       Center flowers are higher.
-       Side flowers spread outward.
-    */
-
-    const positions = [
-
-        [50, 42, -4],
-
-        [37, 48, -15],
-
-        [63, 48, 15],
-
-        [27, 58, -24],
-
-        [73, 58, 24],
-
-        [42, 32, -10],
-
-        [58, 32, 10],
-
-        [20, 68, -30],
-
-        [80, 68, 30],
-
-        [34, 67, -14],
-
-        [66, 67, 14],
-
-        [50, 24, 0]
-
-    ];
-
-
-    const position =
-        positions[
-            index %
-            positions.length
-        ];
-
-
-    image.style.left =
-        `${position[0]}%`;
-
-
-    image.style.top =
-        `${position[1]}%`;
-
-
-    image.style.setProperty(
-        "--flower-angle",
-        `${position[2]}deg`
-    );
-
-
-    image.style.setProperty(
-        "--flower-delay",
-        `${index * 0.05}s`
-    );
-
-
-    /*
-       Slight size variation makes
-       the bouquet feel less artificial.
-    */
-
-    const sizes = [
-        72,
-        78,
-        70,
-        74,
-        68
-    ];
-
-
-    const size =
-        sizes[
-            index %
-            sizes.length
-        ];
-
-
-    image.style.width =
-        `${size}px`;
-
-    image.style.height =
-        `${size}px`;
-
-
-    return image;
-
-}
-
-
-/* =========================================================
-   CREATE FINAL GREENERY
-   ========================================================= */
-
-function createFinalGreenery(
-    item,
-    index
-) {
-
-    const image =
-        document.createElement(
-            "img"
-        );
-
-
-    image.src =
-        item.image;
-
-    image.alt =
-        item.name;
-
-    image.className =
-        "final-green-image";
-
-
-    const positions = [
-
-        [7, 35, -32],
-
-        [17, 20, -22],
-
-        [83, 20, 22],
-
-        [93, 35, 32],
-
-        [12, 62, -40],
-
-        [88, 62, 40]
-
-    ];
-
-
-    const position =
-        positions[
-            index %
-            positions.length
-        ];
-
-
-    image.style.left =
-        `${position[0]}%`;
-
-
-    image.style.top =
-        `${position[1]}%`;
-
-
-    image.style.transform =
-        `translate(-50%, -50%) rotate(${position[2]}deg)`;
-
-
-    return image;
-
-}
 
 
 /* =========================================================
@@ -1905,22 +2017,15 @@ function buildFinalBouquet() {
         );
 
 
-    if (!container) return;
-
-
     container.innerHTML = "";
 
 
-    if (details) {
-
-        details.innerHTML = "";
-
-    }
+    details.innerHTML = "";
 
 
-    /* -----------------------------------------------------
-       WRAPPING
-       ----------------------------------------------------- */
+    /* -----------------------------------------
+       BOUQUET WRAPPING
+       ----------------------------------------- */
 
     const paper =
         document.createElement(
@@ -1932,10 +2037,10 @@ function buildFinalBouquet() {
         "final-paper";
 
 
-    paper.style.background =
-        bouquet.wrapping
-            ? bouquet.wrapping.color
-            : "#e8b7c1";
+    paper.style.setProperty(
+        "--paper",
+        bouquet.wrapping.color
+    );
 
 
     container.appendChild(
@@ -1943,27 +2048,31 @@ function buildFinalBouquet() {
     );
 
 
-    /* -----------------------------------------------------
+    /* -----------------------------------------
        GREENERY
-       ----------------------------------------------------- */
+       ----------------------------------------- */
 
-    const greenArea =
+    const greenLayer =
         document.createElement(
             "div"
         );
 
 
-    greenArea.className =
-        "final-greenery-area";
+    greenLayer.className =
+        "bouquet-greenery";
+
+
+    const greeneryEntries =
+        Object.values(
+            bouquet.greenery
+        );
 
 
     let greenIndex = 0;
 
 
-    Object.values(
-        bouquet.greenery
-    ).forEach(
-        (item) => {
+    greeneryEntries.forEach(
+        item => {
 
             for (
                 let i = 0;
@@ -1971,11 +2080,55 @@ function buildFinalBouquet() {
                 i++
             ) {
 
-                greenArea.appendChild(
-                    createFinalGreenery(
-                        item,
-                        greenIndex
-                    )
+                const stem =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                stem.className =
+                    "bouquet-green-piece";
+
+
+                stem.innerHTML =
+                    greenerySVG(
+                        item.type,
+                        item.color
+                    );
+
+
+                const positions = [
+                    [8, 25, -25],
+                    [18, 15, -18],
+                    [30, 9, -10],
+                    [50, 5, 0],
+                    [70, 9, 10],
+                    [82, 15, 18],
+                    [92, 25, 25]
+                ];
+
+
+                const pos =
+                    positions[
+                        greenIndex %
+                        positions.length
+                    ];
+
+
+                stem.style.left =
+                    `${pos[0]}%`;
+
+
+                stem.style.top =
+                    `${pos[1]}%`;
+
+
+                stem.style.transform =
+                    `translate(-50%, -50%) rotate(${pos[2]}deg)`;
+
+
+                greenLayer.appendChild(
+                    stem
                 );
 
 
@@ -1988,22 +2141,22 @@ function buildFinalBouquet() {
 
 
     container.appendChild(
-        greenArea
+        greenLayer
     );
 
 
-    /* -----------------------------------------------------
+    /* -----------------------------------------
        FLOWERS
-       ----------------------------------------------------- */
+       ----------------------------------------- */
 
-    const flowerArea =
+    const flowerLayer =
         document.createElement(
             "div"
         );
 
 
-    flowerArea.className =
-        "final-flower-area";
+    flowerLayer.className =
+        "bouquet-flowers";
 
 
     const chosenFlowers =
@@ -2012,11 +2165,52 @@ function buildFinalBouquet() {
         );
 
 
+    const positions = [
+
+        [50, 17, 0, 1.12],
+
+        [35, 27, -10, 1],
+
+        [65, 27, 10, 1],
+
+        [23, 39, -17, .95],
+
+        [50, 35, 0, 1.1],
+
+        [77, 39, 17, .95],
+
+        [35, 47, -8, .92],
+
+        [65, 47, 8, .92],
+
+        [49, 50, 0, 1],
+
+        [22, 51, -20, .85],
+
+        [78, 51, 20, .85],
+
+        [41, 40, -5, .9],
+
+        [59, 40, 5, .9],
+
+        [30, 32, -14, .82],
+
+        [70, 32, 14, .82],
+
+        [50, 28, 0, .88],
+
+        [38, 55, -10, .8],
+
+        [62, 55, 10, .8]
+
+    ];
+
+
     let flowerIndex = 0;
 
 
     chosenFlowers.forEach(
-        (flower) => {
+        flower => {
 
             for (
                 let i = 0;
@@ -2024,14 +2218,54 @@ function buildFinalBouquet() {
                 i++
             ) {
 
-                flowerArea.appendChild(
+                const piece =
+                    document.createElement(
+                        "div"
+                    );
 
-                    createFinalFlower(
-                        flower,
-                        flowerIndex,
-                        getTotalFlowers()
-                    )
 
+                piece.className =
+                    "bouquet-flower";
+
+
+                piece.innerHTML =
+                    flowerSVG(
+                        flower.type,
+                        flower.color
+                    );
+
+
+                const pos =
+                    positions[
+                        flowerIndex %
+                        positions.length
+                    ];
+
+
+                piece.style.left =
+                    `${pos[0]}%`;
+
+
+                piece.style.top =
+                    `${pos[1]}%`;
+
+
+                piece.style.setProperty(
+                    "--flower-scale",
+                    pos[3]
+                );
+
+
+                piece.style.transform =
+                    `translate(-50%, -50%) rotate(${pos[2]}deg) scale(${pos[3]})`;
+
+
+                piece.style.zIndex =
+                    30 + flowerIndex;
+
+
+                flowerLayer.appendChild(
+                    piece
                 );
 
 
@@ -2044,62 +2278,106 @@ function buildFinalBouquet() {
 
 
     container.appendChild(
-        flowerArea
+        flowerLayer
     );
 
 
-    /* -----------------------------------------------------
-       RIBBON
-       ----------------------------------------------------- */
+    /* -----------------------------------------
+       STEMS
+       ----------------------------------------- */
 
-    if (bouquet.ribbon) {
-
-        const ribbon =
-            document.createElement(
-                "div"
-            );
-
-
-        ribbon.className =
-            "final-ribbon";
-
-
-        ribbon.style.setProperty(
-            "--selected-ribbon-color",
-            bouquet.ribbon.color
+    const stems =
+        document.createElement(
+            "div"
         );
 
 
-        ribbon.innerHTML = `
-
-            <span
-                class="ribbon-knot"
-            ></span>
-
-            <span
-                class="ribbon-tail-left"
-            ></span>
-
-            <span
-                class="ribbon-tail-right"
-            ></span>
-
-        `;
+    stems.className =
+        "bouquet-stems";
 
 
-        container.appendChild(
-            ribbon
+    for (
+        let i = 0;
+        i < Math.min(
+            getTotalFlowers(),
+            18
+        );
+        i++
+    ) {
+
+        const stem =
+            document.createElement(
+                "span"
+            );
+
+
+        const angle =
+            (i - 8) * 2;
+
+
+        stem.style.transform =
+            `rotate(${angle}deg)`;
+
+
+        stems.appendChild(
+            stem
         );
 
     }
 
 
-    /* -----------------------------------------------------
+    container.appendChild(
+        stems
+    );
+
+
+    /* -----------------------------------------
+       RIBBON BOW
+       ----------------------------------------- */
+
+    if (bouquet.ribbon) {
+
+        const bow =
+            document.createElement(
+                "div"
+            );
+
+
+        bow.className =
+            "final-bow";
+
+
+        bow.style.setProperty(
+            "--ribbon",
+            bouquet.ribbon.color
+        );
+
+
+        bow.innerHTML = `
+
+            <span class="bow-left"></span>
+
+            <span class="bow-right"></span>
+
+            <span class="bow-knot"></span>
+
+            <span class="bow-tail-left"></span>
+
+            <span class="bow-tail-right"></span>
+
+        `;
+
+
+        container.appendChild(
+            bow
+        );
+
+    }
+
+
+    /* -----------------------------------------
        DETAILS
-       ----------------------------------------------------- */
-
-    if (!details) return;
-
+       ----------------------------------------- */
 
     const title =
         document.createElement(
@@ -2117,7 +2395,7 @@ function buildFinalBouquet() {
 
 
     chosenFlowers.forEach(
-        (flower) => {
+        flower => {
 
             const row =
                 document.createElement(
@@ -2150,25 +2428,23 @@ function buildFinalBouquet() {
         getTotalGreenery() > 0
     ) {
 
-        const greenTitle =
+        const heading =
             document.createElement(
                 "h4"
             );
 
 
-        greenTitle.textContent =
+        heading.textContent =
             "Greenery";
 
 
         details.appendChild(
-            greenTitle
+            heading
         );
 
 
-        Object.values(
-            bouquet.greenery
-        ).forEach(
-            (item) => {
+        greeneryEntries.forEach(
+            item => {
 
                 const row =
                     document.createElement(
@@ -2199,52 +2475,44 @@ function buildFinalBouquet() {
     }
 
 
-    if (bouquet.ribbon) {
-
-        const ribbon =
-            document.createElement(
-                "p"
-            );
-
-
-        ribbon.innerHTML = `
-
-            <span>
-                🎀 ${bouquet.ribbon.name}
-            </span>
-
-        `;
-
-
-        details.appendChild(
-            ribbon
+    const ribbonRow =
+        document.createElement(
+            "p"
         );
 
-    }
+
+    ribbonRow.innerHTML = `
+
+        <span>
+            🎀 ${bouquet.ribbon.name}
+        </span>
+
+    `;
 
 
-    if (bouquet.wrapping) {
-
-        const wrap =
-            document.createElement(
-                "p"
-            );
+    details.appendChild(
+        ribbonRow
+    );
 
 
-        wrap.innerHTML = `
-
-            <span>
-                📜 ${bouquet.wrapping.name}
-            </span>
-
-        `;
-
-
-        details.appendChild(
-            wrap
+    const wrappingRow =
+        document.createElement(
+            "p"
         );
 
-    }
+
+    wrappingRow.innerHTML = `
+
+        <span>
+            📜 ${bouquet.wrapping.name}
+        </span>
+
+    `;
+
+
+    details.appendChild(
+        wrappingRow
+    );
 
 }
 
@@ -2254,20 +2522,13 @@ function buildFinalBouquet() {
    ========================================================= */
 
 document
-    .getElementById(
-        "final-button"
-    )
-    ?.addEventListener(
+    .getElementById("final-button")
+    .addEventListener(
         "click",
-        () => {
+        event => {
 
             const button =
-                document.getElementById(
-                    "final-button"
-                );
-
-
-            if (!button) return;
+                event.currentTarget;
 
 
             button.textContent =
@@ -2280,7 +2541,7 @@ document
 
 
             showToast(
-                "Bouquet saved in your heart 💗"
+                "Made especially for you 💗"
             );
 
         }
@@ -2292,41 +2553,18 @@ document
    ========================================================= */
 
 document
-    .getElementById(
-        "start-again"
-    )
-    ?.addEventListener(
+    .getElementById("start-again")
+    .addEventListener(
         "click",
         () => {
 
-            Object.keys(
-                bouquet.flowers
-            ).forEach(
-                (key) => {
+            bouquet.flowers = {};
 
-                    delete bouquet.flowers[key];
+            bouquet.greenery = {};
 
-                }
-            );
+            bouquet.ribbon = null;
 
-
-            Object.keys(
-                bouquet.greenery
-            ).forEach(
-                (key) => {
-
-                    delete bouquet.greenery[key];
-
-                }
-            );
-
-
-            bouquet.ribbon =
-                null;
-
-
-            bouquet.wrapping =
-                null;
+            bouquet.wrapping = null;
 
 
             document
@@ -2334,7 +2572,7 @@ document
                     ".flower-card"
                 )
                 .forEach(
-                    (card) => {
+                    card => {
 
                         card.classList.remove(
                             "has-flower"
@@ -2363,7 +2601,7 @@ document
                     ".greenery-card"
                 )
                 .forEach(
-                    (card) => {
+                    card => {
 
                         card.classList.remove(
                             "has-greenery"
@@ -2392,7 +2630,7 @@ document
                     ".ribbon-card"
                 )
                 .forEach(
-                    (card) => {
+                    card => {
 
                         card.classList.remove(
                             "selected"
@@ -2407,7 +2645,7 @@ document
                     ".wrapping-card"
                 )
                 .forEach(
-                    (card) => {
+                    card => {
 
                         card.classList.remove(
                             "selected"
@@ -2417,32 +2655,31 @@ document
                 );
 
 
-            const ribbonChosen =
+            document.getElementById(
+                "ribbon-chosen"
+            ).textContent =
+                "No ribbon chosen yet.";
+
+
+            document.getElementById(
+                "wrapping-chosen"
+            ).textContent =
+                "No wrapping chosen yet.";
+
+
+            const finalButton =
                 document.getElementById(
-                    "ribbon-chosen"
+                    "final-button"
                 );
 
 
-            if (ribbonChosen) {
-
-                ribbonChosen.textContent =
-                    "No ribbon chosen yet.";
-
-            }
+            finalButton.textContent =
+                "This one's yours 💐";
 
 
-            const wrappingChosen =
-                document.getElementById(
-                    "wrapping-chosen"
-                );
-
-
-            if (wrappingChosen) {
-
-                wrappingChosen.textContent =
-                    "No wrapping chosen yet.";
-
-            }
+            finalButton.classList.remove(
+                "accepted"
+            );
 
 
             updateAllCounts();
