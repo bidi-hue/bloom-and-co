@@ -1,6 +1,7 @@
 /* =========================================================
    BLOOM & CO.
    KRISHNA'S VIRTUAL FLOWER SHOP
+   MATCHING CSS FOR SVG FLOWERS + REAL BOUQUET
    ========================================================= */
 
 * {
@@ -19,7 +20,6 @@
     --muted: #987c80;
     --green: #8fa58b;
     --dark-green: #536b55;
-    --wood: #9b705d;
     --shadow: rgba(91, 57, 62, 0.16);
 }
 
@@ -29,9 +29,7 @@ html {
 
 body {
     min-height: 100vh;
-
     font-family: "DM Sans", sans-serif;
-
     color: var(--brown);
 
     background:
@@ -57,13 +55,10 @@ body {
 
 .floating-petal {
     position: fixed;
-
     z-index: 1;
-
     pointer-events: none;
 
     color: rgba(190, 113, 132, 0.22);
-
     font-size: 30px;
 
     animation: drift 8s ease-in-out infinite;
@@ -77,40 +72,33 @@ body {
 .petal-two {
     top: 58%;
     right: 5%;
-
     animation-delay: 2s;
 }
 
 .petal-three {
     bottom: 8%;
     left: 8%;
-
     animation-delay: 4s;
 }
 
 @keyframes drift {
     0%,
     100% {
-        transform:
-            translateY(0)
-            rotate(0deg);
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform:
-            translateY(-20px)
-            rotate(20deg);
+        transform: translateY(-20px) rotate(20deg);
     }
 }
 
 
 /* =========================================================
-   SHOP TOP BAR
+   TOP BAR
    ========================================================= */
 
 .shop-bar {
     position: fixed;
-
     z-index: 100;
 
     top: 0;
@@ -119,34 +107,30 @@ body {
     transform: translateX(-50%);
 
     width: min(100%, 760px);
-
     height: 70px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     padding: 10px 17px;
 
-    background:
-        rgba(255, 248, 246, 0.94);
+    background: rgba(255, 248, 246, 0.95);
 
     backdrop-filter: blur(15px);
 
     border-bottom:
-        1px solid rgba(177, 126, 136, 0.16);
+        1px solid
+        rgba(177, 126, 136, 0.16);
 
     box-shadow:
-        0 5px 25px rgba(95, 62, 67, 0.08);
+        0 5px 25px
+        rgba(95, 62, 67, 0.08);
 }
 
 .shop-brand {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
@@ -155,7 +139,6 @@ body {
     height: 42px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -166,7 +149,8 @@ body {
     font-size: 24px;
 
     box-shadow:
-        0 5px 15px rgba(150, 87, 103, 0.13);
+        0 5px 15px
+        rgba(150, 87, 103, 0.13);
 }
 
 .brand-name {
@@ -175,9 +159,7 @@ body {
         serif;
 
     font-size: 24px;
-
     font-weight: 700;
-
     line-height: 0.9;
 
     color: #704c53;
@@ -187,9 +169,7 @@ body {
     margin-top: 4px;
 
     font-size: 8px;
-
     letter-spacing: 1px;
-
     text-transform: uppercase;
 
     color: #a78388;
@@ -202,12 +182,10 @@ body {
     height: 42px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border: 1px solid #e5cdd1;
-
     border-radius: 22px;
 
     background: #fff9f7;
@@ -215,7 +193,8 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 5px 15px rgba(101, 67, 72, 0.07);
+        0 5px 15px
+        rgba(101, 67, 72, 0.07);
 
     transition:
         transform 0.2s ease;
@@ -239,7 +218,6 @@ body {
     height: 19px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -252,18 +230,16 @@ body {
     color: white;
 
     font-size: 9px;
-
     font-weight: 700;
 }
 
 
 /* =========================================================
-   PROGRESS
+   PROGRESS BAR
    ========================================================= */
 
 .shop-progress {
     position: fixed;
-
     z-index: 101;
 
     top: 70px;
@@ -272,7 +248,6 @@ body {
     transform: translateX(-50%);
 
     width: min(100%, 760px);
-
     height: 4px;
 
     background: #eadadd;
@@ -280,7 +255,6 @@ body {
 
 .progress-fill {
     width: 0%;
-
     height: 100%;
 
     background:
@@ -303,7 +277,6 @@ body {
     position: relative;
 
     width: min(100%, 760px);
-
     min-height: 100vh;
 
     margin: 0 auto;
@@ -319,7 +292,8 @@ body {
 .shop-room {
     display: none;
 
-    min-height: calc(100vh - 74px);
+    min-height:
+        calc(100vh - 74px);
 
     padding:
         28px
@@ -327,7 +301,8 @@ body {
         35px;
 
     animation:
-        roomEnter 0.55s ease;
+        roomEnter
+        0.55s ease;
 }
 
 .shop-room.active {
@@ -335,30 +310,24 @@ body {
 }
 
 @keyframes roomEnter {
-
     from {
         opacity: 0;
-
-        transform:
-            translateX(35px);
+        transform: translateX(35px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 }
 
 
 /* =========================================================
-   ROOM HEADERS
+   ROOM HEADER
    ========================================================= */
 
 .room-header {
     position: relative;
-
     z-index: 5;
 
     text-align: center;
@@ -378,7 +347,6 @@ body {
     color: #ad7985;
 
     font-size: 9px;
-
     font-weight: 600;
 
     letter-spacing: 2px;
@@ -390,10 +358,10 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size: clamp(36px, 9vw, 55px);
+    font-size:
+        clamp(36px, 9vw, 55px);
 
     line-height: 0.95;
-
     font-weight: 600;
 
     color: #62474b;
@@ -405,7 +373,6 @@ body {
     color: #987d81;
 
     font-size: 12px;
-
     line-height: 1.55;
 }
 
@@ -442,7 +409,6 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -462,7 +428,6 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -477,7 +442,6 @@ body {
 
 .entrance-overlay {
     position: absolute;
-
     inset: 18px;
 
     border:
@@ -496,7 +460,6 @@ body {
 
 .entrance-content {
     position: relative;
-
     z-index: 5;
 
     max-width: 560px;
@@ -527,7 +490,6 @@ body {
     color: #8e6370;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 }
 
@@ -536,7 +498,6 @@ body {
     height: 90px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -552,14 +513,15 @@ body {
     font-size: 52px;
 
     box-shadow:
-        0 15px 35px rgba(119, 72, 82, 0.14);
+        0 15px 35px
+        rgba(119, 72, 82, 0.14);
 
     animation:
-        floatFlower 4s ease-in-out infinite;
+        floatFlower
+        4s ease-in-out infinite;
 }
 
 @keyframes floatFlower {
-
     0%,
     100% {
         transform:
@@ -580,7 +542,6 @@ body {
     color: #a46e7b;
 
     font-size: 10px;
-
     letter-spacing: 1.5px;
 
     text-transform: uppercase;
@@ -610,7 +571,6 @@ body {
         clamp(25px, 6vw, 35px);
 
     line-height: 1.05;
-
     font-weight: 600;
 
     color: #704e55;
@@ -636,7 +596,6 @@ body {
     color: #927b7d;
 
     font-size: 12px;
-
     line-height: 1.6;
 }
 
@@ -646,7 +605,6 @@ body {
     color: #bf8491;
 
     letter-spacing: 8px;
-
     font-size: 16px;
 }
 
@@ -657,7 +615,6 @@ body {
 
 .shop-button {
     position: relative;
-
     z-index: 10;
 
     min-height: 50px;
@@ -667,7 +624,6 @@ body {
         22px;
 
     border: none;
-
     border-radius: 25px;
 
     background:
@@ -684,7 +640,6 @@ body {
         sans-serif;
 
     font-size: 11px;
-
     font-weight: 600;
 
     letter-spacing: 0.5px;
@@ -702,7 +657,6 @@ body {
 
 .shop-button span {
     margin-left: 8px;
-
     font-size: 16px;
 }
 
@@ -730,12 +684,11 @@ body {
 
 
 /* =========================================================
-   FLOWER SHOP SCENE
+   SHOP SCENE
    ========================================================= */
 
 .shop-scene {
     position: relative;
-
     z-index: 4;
 
     min-height: 570px;
@@ -779,7 +732,6 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -794,7 +746,6 @@ body {
 
 .shop-window {
     position: absolute;
-
     z-index: 6;
 
     top: 15px;
@@ -822,7 +773,6 @@ body {
         serif;
 
     font-size: 14px;
-
     letter-spacing: 2px;
 
     white-space: nowrap;
@@ -835,7 +785,6 @@ body {
 
 .flower-display {
     position: relative;
-
     z-index: 7;
 
     display: grid;
@@ -867,7 +816,6 @@ body {
 
 .flower-display::-webkit-scrollbar-thumb {
     background: #d29aa7;
-
     border-radius: 10px;
 }
 
@@ -890,7 +838,7 @@ body {
     border-radius: 17px;
 
     background:
-        rgba(255, 249, 247, 0.94);
+        rgba(255, 249, 247, 0.95);
 
     box-shadow:
         0 7px 18px
@@ -902,8 +850,7 @@ body {
 }
 
 .flower-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 
     box-shadow:
         0 12px 25px
@@ -911,8 +858,7 @@ body {
 }
 
 .flower-card.has-flower {
-    border-color:
-        #c2788b;
+    border-color: #c2788b;
 
     box-shadow:
         0 0 0 2px
@@ -921,6 +867,11 @@ body {
         rgba(91, 57, 64, 0.16);
 }
 
+
+/* =========================================================
+   SVG FLOWER PHOTO
+   ========================================================= */
+
 .flower-photo {
     position: relative;
 
@@ -928,24 +879,31 @@ body {
 
     overflow: hidden;
 
-    background: #f0dedb;
+    background:
+        radial-gradient(
+            circle,
+            #fff9f7,
+            #f0dedb
+        );
 }
 
-.flower-photo img {
+.flower-photo svg {
     width: 100%;
     height: 100%;
 
     display: block;
 
-    object-fit: cover;
+    padding: 8px;
 
     transition:
         transform 0.4s ease;
 }
 
 .flower-card:hover
-.flower-photo img {
-    transform: scale(1.08);
+.flower-photo svg {
+    transform:
+        scale(1.08)
+        rotate(2deg);
 }
 
 .flower-quantity {
@@ -958,7 +916,6 @@ body {
     height: 22px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -970,9 +927,13 @@ body {
     color: white;
 
     font-size: 9px;
-
     font-weight: 700;
 }
+
+
+/* =========================================================
+   FLOWER INFO
+   ========================================================= */
 
 .flower-info {
     padding:
@@ -989,7 +950,6 @@ body {
         serif;
 
     font-size: 16px;
-
     line-height: 1;
 
     color: #684c51;
@@ -1003,9 +963,13 @@ body {
     font-size: 8px;
 
     text-transform: uppercase;
-
     letter-spacing: 0.6px;
 }
+
+
+/* =========================================================
+   PLUS BUTTON
+   ========================================================= */
 
 .flower-add,
 .greenery-add {
@@ -1018,7 +982,6 @@ body {
     height: 29px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -1038,7 +1001,6 @@ body {
     color: white;
 
     font-size: 21px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -1068,13 +1030,10 @@ body {
 
 .room-bottom {
     position: relative;
-
     z-index: 10;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 12px;
@@ -1092,7 +1051,7 @@ body {
     border-radius: 18px;
 
     background:
-        rgba(255, 248, 246, 0.92);
+        rgba(255, 248, 246, 0.94);
 
     box-shadow:
         0 7px 20px
@@ -1101,7 +1060,6 @@ body {
 
 .basket-summary {
     display: flex;
-
     flex-direction: column;
 
     gap: 2px;
@@ -1115,7 +1073,6 @@ body {
     font-size: 9px;
 
     text-transform: uppercase;
-
     letter-spacing: 0.7px;
 }
 
@@ -1182,7 +1139,6 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -1193,7 +1149,6 @@ body {
 
 .greenery-display {
     position: relative;
-
     z-index: 4;
 
     display: grid;
@@ -1207,7 +1162,10 @@ body {
 
     overflow-y: auto;
 
-    padding: 5px 7px 20px;
+    padding:
+        5px
+        7px
+        20px;
 }
 
 .greenery-card {
@@ -1237,15 +1195,22 @@ body {
     height: 92px;
 
     overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8f0e2,
+            #f7f5e9
+        );
 }
 
-.greenery-photo img {
+.greenery-photo svg {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    padding: 8px;
 }
 
 .greenery-quantity {
@@ -1273,7 +1238,11 @@ body {
 }
 
 .greenery-info {
-    padding: 7px 36px 8px 9px;
+    padding:
+        7px
+        36px
+        8px
+        9px;
 }
 
 .greenery-info h3 {
@@ -1336,7 +1305,6 @@ body {
 
 .counter-sign {
     position: absolute;
-
     z-index: 5;
 
     top: 17px;
@@ -1360,15 +1328,18 @@ body {
         serif;
 
     font-size: 14px;
-
     letter-spacing: 1.5px;
 
     white-space: nowrap;
 }
 
+
+/* =========================================================
+   RIBBON DISPLAY
+   ========================================================= */
+
 .ribbon-display {
     position: relative;
-
     z-index: 5;
 
     display: grid;
@@ -1376,26 +1347,21 @@ body {
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 14px;
-
-    max-height: 430px;
-
-    overflow-y: auto;
-
-    padding: 5px;
+    gap: 13px;
 }
 
 .ribbon-card {
-    min-height: 85px;
+    min-height: 100px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
-    gap: 4px;
+    gap: 8px;
+
+    padding: 12px;
 
     border:
         2px solid
@@ -1404,23 +1370,24 @@ body {
     border-radius: 18px;
 
     background:
-        rgba(255, 249, 247, 0.93);
+        rgba(255, 250, 248, 0.95);
+
+    color: #684c51;
 
     cursor: pointer;
 
-    color: #694f53;
-
-    box-shadow:
-        0 7px 17px
-        rgba(83, 53, 60, 0.11);
-
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        border .2s ease,
+        box-shadow .2s ease;
 }
 
 .ribbon-card:hover {
     transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(85, 55, 62, .13);
 }
 
 .ribbon-card.selected {
@@ -1431,51 +1398,83 @@ body {
         0 0 0 3px
         color-mix(
             in srgb,
-            var(--ribbon-color),
-            transparent 75%
+            var(--ribbon-color) 20%,
+            transparent
         );
 }
 
-.ribbon-visual {
-    font-size: 31px;
 
-    color:
-        var(--ribbon-color);
+/* =========================================================
+   ACTUAL COLOURED RIBBON PREVIEW
+   ========================================================= */
+
+.ribbon-bow-preview {
+    position: relative;
+
+    width: 62px;
+    height: 42px;
+
+    display: block;
 }
 
-.ribbon-name {
-    font-family:
-        "Cormorant Garamond",
-        serif;
+.ribbon-bow-preview span:first-child,
+.ribbon-bow-preview span:nth-child(2) {
+    position: absolute;
 
-    font-size: 16px;
-}
+    top: 4px;
 
-.chosen-preview {
-    min-height: 55px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    margin-top: 15px;
-
-    padding: 10px;
-
-    border:
-        1px solid
-        #e6d5d5;
-
-    border-radius: 18px;
+    width: 30px;
+    height: 25px;
 
     background:
-        rgba(255,250,247,0.9);
+        var(--ribbon-color);
 
-    color: #987c81;
+    border-radius:
+        5px
+        18px
+        18px
+        5px;
+}
 
+.ribbon-bow-preview span:first-child {
+    left: 2px;
+
+    transform:
+        rotate(28deg);
+}
+
+.ribbon-bow-preview span:nth-child(2) {
+    right: 2px;
+
+    transform:
+        rotate(-28deg);
+}
+
+.ribbon-bow-preview b {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    top: 10px;
+
+    transform:
+        translateX(-50%);
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+        var(--ribbon-color);
+
+    box-shadow:
+        0 2px 5px
+        rgba(70, 40, 45, .18);
+}
+
+.ribbon-card strong {
     font-family:
         "Cormorant Garamond",
         serif;
@@ -1483,40 +1482,55 @@ body {
     font-size: 17px;
 }
 
+.ribbon-chosen,
+.wrapping-chosen {
+    position: relative;
+    z-index: 5;
+
+    margin-top: 15px;
+
+    min-height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 249, 247, .92);
+
+    border:
+        1px solid
+        #ead5d7;
+
+    font-size: 11px;
+}
+
+.chosen-ribbon-preview {
+    color:
+        var(--chosen-ribbon);
+
+    font-size: 30px;
+
+    filter:
+        drop-shadow(
+            0 2px 3px
+            rgba(80,50,55,.15)
+        );
+}
+
 
 /* =========================================================
    WRAPPING
    ========================================================= */
 
-.wrapping-room {
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            #f3d7d0,
-            transparent 33%
-        ),
-        radial-gradient(
-            circle at 90% 70%,
-            #ded9ec,
-            transparent 33%
-        );
-}
-
-.wrapping-shop {
-    min-height: 500px;
-
-    background:
-        linear-gradient(
-            rgba(255, 242, 236, 0.2),
-            rgba(255, 247, 241, 0.72)
-        ),
-        url("https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=85")
-        center / cover;
-}
-
 .wrapping-display {
     position: relative;
-
     z-index: 5;
 
     display: grid;
@@ -1525,52 +1539,36 @@ body {
         repeat(2, 1fr);
 
     gap: 13px;
-
-    max-height: 420px;
-
-    overflow-y: auto;
-
-    padding: 5px;
 }
 
 .wrapping-card {
     min-height: 100px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    gap: 9px;
 
     border:
         2px solid
-        rgba(255,255,255,0.8);
+        rgba(255,255,255,.8);
 
     border-radius: 18px;
 
     background:
-        rgba(255,250,247,0.94);
+        rgba(255,250,248,.95);
 
-    color: #694f53;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 16px;
+    color: #684c51;
 
     cursor: pointer;
 
-    box-shadow:
-        0 7px 17px
-        rgba(83, 53, 60, 0.11);
-
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        border .2s ease,
+        box-shadow .2s ease;
 }
 
 .wrapping-card:hover {
@@ -1583,411 +1581,51 @@ body {
 
     box-shadow:
         0 0 0 3px
-        rgba(120, 90, 90, 0.1);
+        rgba(190,130,140,.15);
 }
 
-.paper-sample,
-.chosen-paper {
+.paper-sample {
+    width: 58px;
+    height: 45px;
+
     display: block;
-
-    width: 54px;
-    height: 44px;
-
-    border-radius:
-        5px
-        5px
-        15px
-        15px;
 
     background:
         var(--paper-color);
 
+    border-radius:
+        5px
+        12px
+        5px
+        12px;
+
     box-shadow:
-        inset 0 -8px
-        rgba(0,0,0,0.06);
+        inset
+        0 0 0 2px
+        rgba(255,255,255,.35),
+        0 5px 10px
+        rgba(80,50,50,.12);
+}
+
+.wrapping-card strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
 }
 
 .chosen-paper {
-    width: 35px;
-    height: 29px;
-}
+    width: 32px;
+    height: 25px;
 
+    display: inline-block;
 
-/* =========================================================
-   FINAL ROOM
-   ========================================================= */
-
-.final-room {
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            #f8dfe4,
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            #e2eadc,
-            transparent 30%
-        );
-}
-
-.final-heading {
-    margin-bottom: 20px;
-}
-
-.final-heading p {
-    margin-top: 8px;
-
-    color: #987b80;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 18px;
-}
-
-
-/* =========================================================
-   FINAL BOUQUET
-   ========================================================= */
-
-.final-bouquet {
-    position: relative;
-
-    width: min(100%, 440px);
-
-    height: 430px;
-
-    margin:
-        0 auto
-        20px;
-
-    overflow: hidden;
-
-    border-radius: 32px;
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            #fff8f6,
-            #f1dfe0
-        );
+    border-radius: 4px 9px 4px 9px;
 
     box-shadow:
-        0 25px 60px
-        rgba(102, 68, 74, 0.15);
-
-    border:
-        4px solid
-        rgba(255,255,255,0.85);
-}
-
-.final-paper {
-    position: absolute;
-
-    z-index: 2;
-
-    left: 50%;
-    bottom: 15px;
-
-    transform: translateX(-50%);
-
-    width: 190px;
-    height: 210px;
-
-    clip-path:
-        polygon(
-            7% 0,
-            93% 0,
-            100% 100%,
-            0 100%
-        );
-
-    border-radius:
-        8px
-        8px
-        25px
-        25px;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(0,0,0,0.08);
-}
-
-.final-flower-area {
-    position: absolute;
-
-    z-index: 5;
-
-    left: 50%;
-    bottom: 125px;
-
-    transform: translateX(-50%);
-
-    width: 92%;
-
-    display: flex;
-
-    align-items: flex-end;
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 0;
-
-    padding: 5px 15px;
-}
-
-.final-flower-image {
-    width: 67px;
-    height: 67px;
-
-    margin:
-        -7px
-        -6px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border:
-        3px solid
-        rgba(255,255,255,0.8);
-
-    box-shadow:
-        0 5px 12px
-        rgba(76, 48, 54, 0.17);
-
-    transform:
-        rotate(var(--flower-angle));
-
-    animation:
-        flowerPop
-        0.6s
-        var(--flower-delay)
-        backwards
-        ease-out;
-}
-
-@keyframes flowerPop {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.2)
-            rotate(0);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1)
-            rotate(var(--flower-angle));
-    }
-}
-
-.final-greenery-area {
-    position: absolute;
-
-    z-index: 4;
-
-    left: 50%;
-    bottom: 110px;
-
-    transform: translateX(-50%);
-
-    width: 85%;
-
-    display: flex;
-
-    justify-content: center;
-}
-
-.final-green-image {
-    width: 55px;
-    height: 80px;
-
-    object-fit: cover;
-
-    border-radius:
-        50%
-        10px;
-
-    margin: -10px;
-
-    opacity: 0.8;
-
-    transform:
-        rotate(
-            calc(
-                var(--green-angle, 0deg)
-            )
-        );
-}
-
-.final-ribbon {
-    position: absolute;
-
-    z-index: 10;
-
-    left: 50%;
-    bottom: 100px;
-
-    transform: translateX(-50%);
-
-    width: 53px;
-    height: 53px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    color: white;
-
-    font-size: 27px;
-
-    box-shadow:
-        0 7px 18px
-        rgba(71, 47, 51, 0.2);
-}
-
-
-/* =========================================================
-   FINAL DETAILS
-   ========================================================= */
-
-.final-details {
-    width: min(100%, 430px);
-
-    margin:
-        0 auto
-        18px;
-
-    padding:
-        18px
-        20px;
-
-    border:
-        1px solid
-        #e7d6d5;
-
-    border-radius: 22px;
-
-    background:
-        rgba(255,250,247,0.9);
-
-    text-align: left;
-
-    box-shadow:
-        0 8px 20px
-        rgba(85, 54, 60, 0.06);
-}
-
-.final-details h3 {
-    margin-bottom: 9px;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 22px;
-
-    color: #724e55;
-}
-
-.final-details h4 {
-    margin:
-        12px
-        0
-        5px;
-
-    color: #68806a;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-.final-details p {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 4px 0;
-
-    color: #806a6d;
-
-    font-size: 12px;
-}
-
-.final-details strong {
-    color: #a36575;
-}
-
-.final-note {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    margin:
-        15px
-        auto
-        22px;
-
-    color: #a27d83;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 15px;
-}
-
-.final-note span {
-    color: #c78391;
-}
-
-.shop-button.accepted {
-    background:
-        linear-gradient(
-            135deg,
-            #789174,
-            #91a98c
-        );
-}
-
-.text-button {
-    display: block;
-
-    margin:
-        16px
-        auto
-        0;
-
-    border: none;
-
-    background: transparent;
-
-    color: #a77c84;
-
-    font-size: 11px;
-
-    text-decoration: underline;
-
-    cursor: pointer;
+        0 2px 6px
+        rgba(60,40,40,.15);
 }
 
 
@@ -1995,110 +1633,92 @@ body {
    BASKET POPUP
    ========================================================= */
 
-.basket-popup {
+#basket-popup {
     position: fixed;
 
     z-index: 500;
 
-    top: 80px;
-    right: 15px;
+    inset: 0;
 
-    width: min(
-        calc(100% - 30px),
-        330px
-    );
+    display: none;
 
-    max-height: 70vh;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(65,45,48,.38);
+
+    backdrop-filter: blur(5px);
+}
+
+#basket-popup.open {
+    display: flex;
+}
+
+.basket-window {
+    width: min(100%, 420px);
+
+    max-height: 80vh;
 
     overflow-y: auto;
 
-    padding: 23px;
+    padding: 25px;
 
-    border:
-        1px solid
-        #e6d1d4;
-
-    border-radius: 23px;
+    border-radius: 25px;
 
     background:
-        rgba(255,250,247,0.97);
-
-    backdrop-filter: blur(15px);
+        #fffaf7;
 
     box-shadow:
-        0 25px 60px
-        rgba(68, 45, 49, 0.2);
+        0 25px 70px
+        rgba(55,35,40,.25);
 
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(-10px)
-        scale(0.96);
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease,
-        transform 0.25s ease;
+    animation:
+        popupIn
+        .3s ease;
 }
 
-.basket-popup.open {
-    opacity: 1;
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: scale(.92);
+    }
 
-    visibility: visible;
-
-    transform:
-        translateY(0)
-        scale(1);
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.basket-popup h3 {
-    margin-bottom: 15px;
-
+.basket-window h2 {
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 27px;
+    font-size: 32px;
 
-    color: #704e54;
+    color: #694c51;
+
+    margin-bottom: 15px;
 }
 
-.close-popup {
-    position: absolute;
-
-    top: 10px;
-    right: 12px;
-
-    width: 28px;
-    height: 28px;
+#close-basket {
+    float: right;
 
     border: none;
 
+    background: #f1d9de;
+
+    width: 32px;
+    height: 32px;
+
     border-radius: 50%;
 
-    background: #f0dce0;
-
-    color: #8b626c;
-
-    font-size: 19px;
-
     cursor: pointer;
-}
 
-.basket-items {
-    border-top:
-        1px solid
-        #eadbd8;
-
-    border-bottom:
-        1px solid
-        #eadbd8;
-
-    padding:
-        9px
-        0;
+    color: #714f56;
 }
 
 .basket-item {
@@ -2106,33 +1726,22 @@ body {
 
     justify-content: space-between;
 
-    padding: 6px 0;
+    padding: 9px 0;
 
-    color: #765e63;
+    border-bottom:
+        1px solid
+        #f0dfe1;
 
     font-size: 12px;
 }
 
 .basket-item strong {
-    color: #ae6878;
+    color: #a35e71;
 }
 
-.basket-total {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-top: 13px;
-
-    color: #8b7074;
-
-    font-size: 11px;
-}
-
-.basket-total strong {
-    color: #a85e70;
-
-    font-size: 17px;
+#basket-total {
+    color: #a35e71;
+    font-weight: 700;
 }
 
 
@@ -2140,25 +1749,29 @@ body {
    TOAST
    ========================================================= */
 
-.toast {
+#toast {
     position: fixed;
 
-    z-index: 600;
+    z-index: 1000;
 
     left: 50%;
     bottom: 25px;
 
     transform:
-        translate(-50%, 20px);
+        translate(-50%, 30px);
+
+    opacity: 0;
+
+    pointer-events: none;
 
     padding:
-        10px
-        17px;
+        11px
+        18px;
 
-    border-radius: 25px;
+    border-radius: 30px;
 
     background:
-        rgba(90, 57, 64, 0.92);
+        rgba(91,57,64,.92);
 
     color: white;
 
@@ -2166,18 +1779,14 @@ body {
 
     box-shadow:
         0 8px 25px
-        rgba(60, 40, 44, 0.2);
-
-    opacity: 0;
-
-    pointer-events: none;
+        rgba(50,30,35,.2);
 
     transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+        opacity .25s ease,
+        transform .25s ease;
 }
 
-.toast.show {
+#toast.show {
     opacity: 1;
 
     transform:
@@ -2186,642 +1795,453 @@ body {
 
 
 /* =========================================================
-   MOBILE
+   FINAL BOUQUET ROOM
    ========================================================= */
 
-@media (max-width: 600px) {
+.final-room {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff0f2,
+            transparent 45%
+        ),
+        #f8eee9;
+}
 
-    .shop-bar {
-        height: 64px;
-    }
+.final-heading {
+    text-align: center;
 
-    .shop-progress {
-        top: 64px;
-    }
+    margin:
+        10px auto
+        20px;
+}
 
-    #shop {
-        padding-top: 68px;
-    }
+.final-heading p {
+    margin-top: 8px;
 
-    .brand-name {
-        font-size: 21px;
-    }
+    color: #987c80;
 
-    .brand-tagline {
-        font-size: 7px;
-    }
-
-    .brand-flower {
-        width: 38px;
-        height: 38px;
-
-        font-size: 21px;
-    }
-
-    .shop-room {
-        min-height:
-            calc(100vh - 68px);
-
-        padding:
-            22px
-            8px
-            30px;
-    }
-
-    .room-header h2 {
-        font-size: 38px;
-    }
-
-    .room-header p {
-        font-size: 11px;
-    }
-
-    .entrance-content {
-        padding:
-            15px
-            8px;
-    }
-
-    .entrance-content h1 {
-        font-size: 54px;
-    }
-
-    .entrance-content h2 {
-        font-size: 27px;
-    }
-
-    .entrance-message {
-        font-size: 18px;
-    }
-
-    .shop-scene {
-        min-height: 550px;
-
-        padding:
-            62px
-            7px
-            15px;
-
-        border-radius: 25px;
-    }
-
-    .flower-display {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 9px;
-
-        max-height: 465px;
-    }
-
-    .flower-photo {
-        height: 115px;
-    }
-
-    .flower-info h3 {
-        font-size: 17px;
-    }
-
-    .room-bottom {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .basket-summary {
-        align-items: center;
-
-        text-align: center;
-    }
-
-    .room-bottom .shop-button {
-        width: 100%;
-    }
-
-    .greenhouse-scene {
-        min-height: 530px;
-
-        padding:
-            62px
-            7px
-            15px;
-    }
-
-    .greenery-display {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        max-height: 445px;
-    }
-
-    .ribbon-shop,
-    .wrapping-shop {
-        min-height: 520px;
-
-        padding:
-            68px
-            9px
-            15px;
-    }
-
-    .ribbon-display,
-    .wrapping-display {
-        gap: 9px;
-    }
-
-    .final-bouquet {
-        height: 390px;
-    }
-
-    .final-flower-image {
-        width: 57px;
-        height: 57px;
-    }
-
-    .final-paper {
-        width: 175px;
-        height: 190px;
-    }
-
+    font-size: 12px;
 }
 
 
 /* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .flower-photo {
-        height: 95px;
-    }
-
-    .flower-info {
-        padding:
-            7px
-            5px
-            34px;
-    }
-
-    .flower-info h3 {
-        font-size: 14px;
-    }
-
-    .flower-info p {
-        font-size: 7px;
-    }
-
-    .flower-add {
-        width: 27px;
-        height: 27px;
-    }
-
-    .entrance-content h1 {
-        font-size: 47px;
-    }
-
-    .entrance-content h2 {
-        font-size: 24px;
-    }
-
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-button:focus-visible {
-    outline:
-        3px solid
-        #c78694;
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-        scroll-behavior:
-            auto !important;
-    }
-}
-/* =========================================================
-   FINAL BOUQUET — REAL BOUQUET LOOK
+   FINAL BOUQUET DISPLAY
    ========================================================= */
 
 #final-bouquet {
     position: relative;
-    width: min(92vw, 390px);
-    height: 390px;
-    margin: 20px auto 28px;
-    overflow: hidden;
-    border-radius: 30px;
-    background:
-        radial-gradient(
-            circle at 50% 32%,
-            rgba(255,255,255,0.95),
-            rgba(255,239,243,0.85)
-        );
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow:
-        0 18px 45px rgba(110,65,76,0.16),
-        inset 0 0 30px rgba(255,255,255,0.5);
-}
 
-/* ---------------------------------------------------------
-   WRAPPING PAPER
-   --------------------------------------------------------- */
+    width: min(100%, 480px);
 
-.final-paper {
-    position: absolute;
-    z-index: 2;
-
-    left: 50%;
-    bottom: 18px;
-
-    width: 145px;
-    height: 190px;
-
-    transform: translateX(-50%);
-
-    clip-path: polygon(
-        12% 0,
-        88% 0,
-        100% 100%,
-        0 100%
-    );
-
-    border-radius: 8px 8px 25px 25px;
-
-    box-shadow:
-        0 12px 20px rgba(90,55,60,0.18);
-
-    opacity: 0.96;
-}
-
-/* subtle folds */
-.final-paper::before,
-.final-paper::after {
-    content: "";
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    width: 2px;
-
-    background: rgba(255,255,255,0.3);
-}
-
-.final-paper::before {
-    left: 35%;
-    transform: rotate(8deg);
-}
-
-.final-paper::after {
-    right: 35%;
-    transform: rotate(-8deg);
-}
-
-
-/* ---------------------------------------------------------
-   FLOWER AREA
-   --------------------------------------------------------- */
-
-.final-flower-area {
-    position: absolute;
-    z-index: 5;
-
-    left: 50%;
-    top: 38px;
-
-    width: 310px;
-    height: 235px;
-
-    transform: translateX(-50%);
-}
-
-
-/* ---------------------------------------------------------
-   INDIVIDUAL FLOWER
-   --------------------------------------------------------- */
-
-.final-flower-image {
-    position: absolute;
-
-    width: 72px;
-    height: 72px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border:
-        3px solid
-        rgba(255,255,255,0.92);
-
-    box-shadow:
-        0 5px 12px rgba(80,50,55,0.22);
-
-    animation:
-        bouquetFlowerAppear
-        0.6s ease both;
-
-    animation-delay:
-        var(--flower-delay);
-
-    transform:
-        translate(-50%, -50%)
-        rotate(var(--flower-angle));
-
-    transition:
-        transform 0.25s ease;
-}
-
-.final-flower-image:hover {
-    transform:
-        translate(-50%, -50%)
-        scale(1.08)
-        rotate(var(--flower-angle));
-}
-
-@keyframes bouquetFlowerAppear {
-    from {
-        opacity: 0;
-        transform:
-            translate(-50%, -30%)
-            scale(0.5)
-            rotate(var(--flower-angle));
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translate(-50%, -50%)
-            scale(1)
-            rotate(var(--flower-angle));
-    }
-}
-
-
-/* ---------------------------------------------------------
-   GREENERY
-   --------------------------------------------------------- */
-
-.final-greenery-area {
-    position: absolute;
-    z-index: 3;
-
-    left: 50%;
-    top: 78px;
-
-    width: 300px;
-    height: 210px;
-
-    transform: translateX(-50%);
-
-    pointer-events: none;
-}
-
-/*
-   Instead of displaying random greenery photographs,
-   create soft leafy stems behind the flowers.
-*/
-
-.final-green-image {
-    position: absolute;
-
-    width: 100px;
-    height: 145px;
-
-    object-fit: cover;
-
-    border-radius:
-        55% 15% 55% 15%;
-
-    opacity: 0.72;
-
-    filter:
-        saturate(0.7)
-        brightness(1.05);
-
-    box-shadow:
-        0 4px 10px rgba(55,80,55,0.12);
-}
-
-
-/* ---------------------------------------------------------
-   RIBBON
-   --------------------------------------------------------- */
-
-.final-ribbon {
-    position: absolute;
-    z-index: 10;
-
-    left: 50%;
-    bottom: 92px;
-
-    width: 58px;
-    height: 42px;
-
-    transform: translateX(-50%);
-
-    background: transparent !important;
-
-    font-size: 0;
-
-    filter:
-        drop-shadow(
-            0 4px 5px
-            rgba(80,45,50,0.18)
-        );
-}
-
-
-/* left bow */
-.final-ribbon::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 4px;
-
-    width: 29px;
-    height: 25px;
-
-    background: var(--selected-ribbon-color, #d99aaa);
-
-    border-radius:
-        75% 20% 75% 20%;
-
-    transform:
-        rotate(18deg);
-
-    box-shadow:
-        inset -3px -2px 4px rgba(0,0,0,0.08);
-}
-
-
-/* right bow */
-.final-ribbon::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-    top: 4px;
-
-    width: 29px;
-    height: 25px;
-
-    background: var(--selected-ribbon-color, #d99aaa);
-
-    border-radius:
-        20% 75% 20% 75%;
-
-    transform:
-        rotate(-18deg);
-
-    box-shadow:
-        inset 3px -2px 4px rgba(0,0,0,0.08);
-}
-
-
-/* ribbon centre */
-.final-ribbon {
-    border-radius: 50%;
-}
-
-.final-ribbon .ribbon-knot {
-    position: absolute;
-
-    z-index: 3;
-
-    left: 50%;
-    top: 10px;
-
-    width: 19px;
-    height: 19px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        var(--selected-ribbon-color, #d99aaa);
-
-    box-shadow:
-        0 2px 4px rgba(0,0,0,0.15);
-}
-
-
-/* ---------------------------------------------------------
-   RIBBON TAILS
-   --------------------------------------------------------- */
-
-.final-ribbon .ribbon-tail-left,
-.final-ribbon .ribbon-tail-right {
-    position: absolute;
-
-    top: 25px;
-
-    width: 20px;
-    height: 55px;
-
-    background:
-        var(--selected-ribbon-color, #d99aaa);
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            75% 100%,
-            50% 82%,
-            25% 100%
-        );
-}
-
-.final-ribbon .ribbon-tail-left {
-    left: 12px;
-    transform: rotate(8deg);
-}
-
-.final-ribbon .ribbon-tail-right {
-    right: 12px;
-    transform: rotate(-8deg);
-}
-
-
-/* ---------------------------------------------------------
-   FINAL DETAILS
-   --------------------------------------------------------- */
-
-#final-details {
-    width: min(92vw, 390px);
+    height: 530px;
 
     margin:
         0 auto
         20px;
 
-    padding:
-        18px
-        18px;
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #fff9f5,
+            #f5dce2
+        );
+
+    border:
+        3px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 25px 60px
+        rgba(92,57,64,.17);
+}
+
+
+/* =========================================================
+   FINAL PAPER
+   ========================================================= */
+
+.final-paper {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform:
+        translateX(-50%);
+
+    width: 260px;
+    height: 260px;
+
+    background:
+        var(--paper);
+
+    clip-path:
+        polygon(
+            10% 0,
+            90% 0,
+            75% 100%,
+            25% 100%
+        );
+
+    border-radius:
+        5px
+        5px
+        35px
+        35px;
+
+    box-shadow:
+        0 15px 25px
+        rgba(75,45,50,.14);
+}
+
+
+/* =========================================================
+   PAPER FOLDS
+   ========================================================= */
+
+.final-paper::before,
+.final-paper::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 50%;
+    height: 100%;
+
+    opacity: .18;
+}
+
+.final-paper::before {
+    left: 0;
+
+    background:
+        rgba(255,255,255,.6);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%,
+            0 100%
+        );
+}
+
+.final-paper::after {
+    right: 0;
+
+    background:
+        rgba(80,50,55,.18);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            50% 100%
+        );
+}
+
+
+/* =========================================================
+   BOUQUET GREENERY
+   ========================================================= */
+
+.bouquet-greenery {
+    position: absolute;
+
+    z-index: 20;
+
+    inset: 35px 35px 150px;
+}
+
+.bouquet-green-piece {
+    position: absolute;
+
+    width: 125px;
+    height: 180px;
+
+    transform-origin:
+        center bottom;
+}
+
+.bouquet-green-piece svg {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =========================================================
+   BOUQUET FLOWERS
+   ========================================================= */
+
+.bouquet-flowers {
+    position: absolute;
+
+    z-index: 40;
+
+    inset: 35px 30px 155px;
+}
+
+.bouquet-flower {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    filter:
+        drop-shadow(
+            0 6px 7px
+            rgba(80,45,50,.13)
+        );
+
+    animation:
+        bouquetFlowerIn
+        .55s ease both;
+}
+
+.bouquet-flower svg {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+@keyframes bouquetFlowerIn {
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.3);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   STEMS
+   ========================================================= */
+
+.bouquet-stems {
+    position: absolute;
+
+    z-index: 25;
+
+    left: 50%;
+    bottom: 70px;
+
+    width: 150px;
+    height: 230px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+.bouquet-stems span {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 5px;
+    height: 210px;
+
+    transform-origin:
+        bottom center;
+
+    background:
+        #557456;
+
+    border-radius: 10px;
+
+    opacity: .9;
+}
+
+
+/* =========================================================
+   FINAL RIBBON BOW
+   ========================================================= */
+
+.final-bow {
+    position: absolute;
+
+    z-index: 80;
+
+    left: 50%;
+    bottom: 105px;
+
+    width: 105px;
+    height: 70px;
+
+    transform:
+        translateX(-50%);
+}
+
+.bow-left,
+.bow-right {
+    position: absolute;
+
+    top: 5px;
+
+    width: 55px;
+    height: 42px;
+
+    background:
+        var(--ribbon);
+
+    box-shadow:
+        0 5px 9px
+        rgba(70,40,45,.18);
+}
+
+.bow-left {
+    left: 0;
+
+    border-radius:
+        8px
+        30px
+        30px
+        8px;
+
+    transform:
+        rotate(25deg);
+}
+
+.bow-right {
+    right: 0;
+
+    border-radius:
+        30px
+        8px
+        8px
+        30px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.bow-knot {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    top: 17px;
+
+    width: 25px;
+    height: 25px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        var(--ribbon);
+}
+
+.bow-tail-left,
+.bow-tail-right {
+    position: absolute;
+
+    top: 35px;
+
+    width: 25px;
+    height: 45px;
+
+    background:
+        var(--ribbon);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            80% 100%,
+            50% 78%,
+            20% 100%
+        );
+}
+
+.bow-tail-left {
+    left: 28px;
+
+    transform:
+        rotate(12deg);
+}
+
+.bow-tail-right {
+    right: 28px;
+
+    transform:
+        rotate(-12deg);
+}
+
+
+/* =========================================================
+   FINAL DETAILS
+   ========================================================= */
+
+#final-details {
+    width: min(100%, 480px);
+
+    margin:
+        0 auto
+        20px;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,250,247,.95);
 
     border:
         1px solid
-        rgba(218,185,190,0.55);
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,250,248,0.92);
+        #ead7d9;
 
     box-shadow:
-        0 10px 30px
-        rgba(100,60,68,0.08);
+        0 10px 25px
+        rgba(80,50,55,.07);
 }
 
 #final-details h3 {
-    margin-bottom: 12px;
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+    color: #684c51;
+}
+
+#final-details h4 {
+    margin-top: 14px;
+    margin-bottom: 4px;
+
+    color: #6b8068;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 23px;
-
-    color: #704d54;
-}
-
-#final-details h4 {
-    margin:
-        13px 0 5px;
-
-    color: #8c6570;
-
-    font-size: 10px;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
+    font-size: 20px;
 }
 
 #final-details p {
@@ -2829,109 +2249,190 @@ button:focus-visible {
 
     justify-content: space-between;
 
-    margin: 6px 0;
+    padding:
+        6px
+        0;
 
-    color: #876f73;
+    border-bottom:
+        1px solid
+        #f1e3e4;
 
     font-size: 11px;
 }
 
-
-/* ---------------------------------------------------------
-   RIBBON CARDS — SHOW ACTUAL COLOUR
-   --------------------------------------------------------- */
-
-.ribbon-card {
-    position: relative;
-
-    overflow: hidden;
+#final-details strong {
+    color: #a35e71;
 }
 
-.ribbon-card::before {
-    content: "";
 
-    position: absolute;
+/* =========================================================
+   FINAL BUTTON AREA
+   ========================================================= */
 
-    inset: 0;
+.final-actions {
+    display: flex;
 
-    background:
-        var(--ribbon-color);
-
-    opacity: 0.14;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.2s ease;
-}
-
-.ribbon-card:hover::before,
-.ribbon-card.selected::before {
-    opacity: 0.28;
-}
-
-.ribbon-visual {
-    position: relative;
-
-    z-index: 2;
-
-    display: inline-flex;
-
-    width: 48px;
-    height: 32px;
-
-    align-items: center;
     justify-content: center;
 
-    font-size: 0;
+    gap: 10px;
 
-    color:
-        var(--ribbon-color);
+    flex-wrap: wrap;
+
+    margin-top: 15px;
 }
 
-/* Make the emoji bow itself use the selected colour visually */
-.ribbon-visual::before {
-    content: "";
-
-    width: 28px;
-    height: 18px;
-
+#final-button.accepted {
     background:
-        var(--ribbon-color);
-
-    border-radius:
-        70% 20% 70% 20%;
-
-    transform:
-        rotate(20deg);
-}
-
-.ribbon-name {
-    position: relative;
-    z-index: 2;
+        linear-gradient(
+            135deg,
+            #71926f,
+            #91aa88
+        );
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
+
+    .shop-room {
+        padding:
+            24px
+            10px
+            30px;
+    }
+
+
+    .shop-scene {
+        min-height: 550px;
+
+        padding:
+            62px
+            7px
+            17px;
+    }
+
+
+    .flower-display {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .flower-photo {
+        height: 115px;
+    }
+
+
+    .flower-info h3 {
+        font-size: 15px;
+    }
+
+
+    .greenery-display {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .ribbon-display,
+    .wrapping-display {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .ribbon-shop,
+    .wrapping-shop {
+        padding:
+            68px
+            9px
+            20px;
+    }
+
 
     #final-bouquet {
-        height: 360px;
+        height: 500px;
     }
 
-    .final-flower-area {
-        transform:
-            translateX(-50%)
-            scale(0.9);
+
+    .final-paper {
+        width: 235px;
+        height: 250px;
     }
 
-    .final-greenery-area {
-        transform:
-            translateX(-50%)
-            scale(0.9);
+
+    .bouquet-flower {
+        width: 88px;
+        height: 88px;
+    }
+
+
+    .bouquet-green-piece {
+        width: 105px;
+        height: 165px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .brand-name {
+        font-size: 21px;
+    }
+
+
+    .brand-tagline {
+        font-size: 7px;
+    }
+
+
+    .shop-scene {
+        border-radius: 24px;
+    }
+
+
+    .flower-display {
+        gap: 7px;
+    }
+
+
+    .flower-photo {
+        height: 100px;
+    }
+
+
+    .flower-info h3 {
+        font-size: 14px;
+    }
+
+
+    .flower-info p {
+        font-size: 7px;
+    }
+
+
+    .flower-add {
+        width: 27px;
+        height: 27px;
+    }
+
+
+    #final-bouquet {
+        height: 470px;
     }
 
 }
