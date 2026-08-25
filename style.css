@@ -1,0 +1,2424 @@
+/* =========================================================
+   BLOOM & CO.
+   KRISHNA'S VIRTUAL FLOWER SHOP
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pink: #d991a2;
+    --deep-pink: #a95f73;
+    --soft-pink: #f5dce2;
+    --pale-pink: #fff4f5;
+    --cream: #fffaf4;
+    --brown: #62494a;
+    --muted: #987c80;
+    --green: #8fa58b;
+    --dark-green: #536b55;
+    --wood: #9b705d;
+    --shadow: rgba(91, 57, 62, 0.16);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--brown);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #f8dfe5 0,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #e7efe0 0,
+            transparent 28%
+        ),
+        #f8eee9;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FLOATING PETALS
+   ========================================================= */
+
+.floating-petal {
+    position: fixed;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    color: rgba(190, 113, 132, 0.22);
+
+    font-size: 30px;
+
+    animation: drift 8s ease-in-out infinite;
+}
+
+.petal-one {
+    top: 18%;
+    left: 4%;
+}
+
+.petal-two {
+    top: 58%;
+    right: 5%;
+
+    animation-delay: 2s;
+}
+
+.petal-three {
+    bottom: 8%;
+    left: 8%;
+
+    animation-delay: 4s;
+}
+
+@keyframes drift {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(20deg);
+    }
+}
+
+
+/* =========================================================
+   SHOP TOP BAR
+   ========================================================= */
+
+.shop-bar {
+    position: fixed;
+
+    z-index: 100;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(100%, 760px);
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 17px;
+
+    background:
+        rgba(255, 248, 246, 0.94);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(177, 126, 136, 0.16);
+
+    box-shadow:
+        0 5px 25px rgba(95, 62, 67, 0.08);
+}
+
+.shop-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.brand-flower {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f2d2da;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 5px 15px rgba(150, 87, 103, 0.13);
+}
+
+.brand-name {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    line-height: 0.9;
+
+    color: #704c53;
+}
+
+.brand-tagline {
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #a78388;
+}
+
+.bouquet-basket {
+    position: relative;
+
+    width: 47px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e5cdd1;
+
+    border-radius: 22px;
+
+    background: #fff9f7;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(101, 67, 72, 0.07);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.bouquet-basket:hover {
+    transform: translateY(-2px);
+}
+
+.basket-icon {
+    font-size: 21px;
+}
+
+.basket-count {
+    position: absolute;
+
+    top: -5px;
+    right: -4px;
+
+    min-width: 19px;
+    height: 19px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px 5px;
+
+    border-radius: 20px;
+
+    background: var(--deep-pink);
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.shop-progress {
+    position: fixed;
+
+    z-index: 101;
+
+    top: 70px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(100%, 760px);
+
+    height: 4px;
+
+    background: #eadadd;
+}
+
+.progress-fill {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c6788b,
+            #e1a3b1
+        );
+
+    transition:
+        width 0.6s ease;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+#shop {
+    position: relative;
+
+    width: min(100%, 760px);
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding-top: 74px;
+}
+
+
+/* =========================================================
+   ROOMS
+   ========================================================= */
+
+.shop-room {
+    display: none;
+
+    min-height: calc(100vh - 74px);
+
+    padding:
+        28px
+        15px
+        35px;
+
+    animation:
+        roomEnter 0.55s ease;
+}
+
+.shop-room.active {
+    display: block;
+}
+
+@keyframes roomEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   ROOM HEADERS
+   ========================================================= */
+
+.room-header {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    margin:
+        5px auto
+        20px;
+
+    max-width: 520px;
+}
+
+.room-number {
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+    color: #ad7985;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.room-header h2,
+.final-heading h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: clamp(36px, 9vw, 55px);
+
+    line-height: 0.95;
+
+    font-weight: 600;
+
+    color: #62474b;
+}
+
+.room-header p {
+    margin-top: 10px;
+
+    color: #987d81;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   ENTRANCE
+   ========================================================= */
+
+#room-0 {
+    position: relative;
+
+    min-height:
+        calc(100vh - 74px);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    padding:
+        50px
+        18px;
+}
+
+#room-0.active {
+    display: flex;
+}
+
+#room-0::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(255, 222, 229, 0.73),
+            rgba(255, 245, 239, 0.92)
+        ),
+        url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+
+    filter: saturate(0.8);
+
+    z-index: -3;
+}
+
+#room-0::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 240, 244, 0.15),
+            rgba(255, 247, 239, 0.85)
+        );
+
+    z-index: -2;
+}
+
+.entrance-overlay {
+    position: absolute;
+
+    inset: 18px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.75);
+
+    border-radius: 35px;
+
+    background:
+        rgba(255, 247, 245, 0.35);
+
+    backdrop-filter: blur(2px);
+
+    z-index: -1;
+}
+
+.entrance-content {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 560px;
+
+    padding:
+        30px
+        20px;
+}
+
+.little-sign {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    padding:
+        7px
+        15px;
+
+    border:
+        1px solid
+        rgba(151, 91, 105, 0.3);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 249, 246, 0.75);
+
+    color: #8e6370;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.welcome-flower {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin:
+        0 auto
+        15px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 239, 243, 0.88);
+
+    font-size: 52px;
+
+    box-shadow:
+        0 15px 35px rgba(119, 72, 82, 0.14);
+
+    animation:
+        floatFlower 4s ease-in-out infinite;
+}
+
+@keyframes floatFlower {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-9px)
+            rotate(3deg);
+    }
+}
+
+.tiny-heading {
+    margin-bottom: 5px;
+
+    color: #a46e7b;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.entrance-content h1 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(45px, 12vw, 70px);
+
+    line-height: 0.95;
+
+    color: #6d4950;
+
+    margin-bottom: 15px;
+}
+
+.entrance-content h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(25px, 6vw, 35px);
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    color: #704e55;
+}
+
+.entrance-message {
+    margin:
+        17px auto
+        8px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    color: #956572;
+}
+
+.entrance-small {
+    margin-bottom: 25px;
+
+    color: #927b7d;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.entrance-decoration {
+    margin-top: 20px;
+
+    color: #bf8491;
+
+    letter-spacing: 8px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.shop-button {
+    position: relative;
+
+    z-index: 10;
+
+    min-height: 50px;
+
+    padding:
+        12px
+        22px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a96577,
+            #c78495
+        );
+
+    color: white;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(130, 70, 84, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.shop-button span {
+    margin-left: 8px;
+
+    font-size: 16px;
+}
+
+.shop-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(130, 70, 84, 0.27);
+}
+
+.shop-button:active {
+    transform: scale(0.97);
+}
+
+.big-button {
+    min-height: 56px;
+
+    padding:
+        14px
+        28px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FLOWER SHOP SCENE
+   ========================================================= */
+
+.shop-scene {
+    position: relative;
+
+    z-index: 4;
+
+    min-height: 570px;
+
+    padding:
+        65px
+        10px
+        20px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 226, 231, 0.2),
+            rgba(255, 245, 239, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+
+    box-shadow:
+        0 20px 45px var(--shadow);
+
+    border:
+        4px solid
+        rgba(255, 255, 255, 0.75);
+}
+
+.second-scene {
+    background:
+        linear-gradient(
+            rgba(255, 226, 231, 0.18),
+            rgba(255, 244, 237, 0.5)
+        ),
+        url("https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+}
+
+.shop-scene::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(76, 55, 48, 0.1),
+            rgba(255, 241, 238, 0.45)
+        );
+
+    pointer-events: none;
+}
+
+.shop-window {
+    position: absolute;
+
+    z-index: 6;
+
+    top: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding:
+        7px
+        17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.7);
+
+    border-radius: 5px;
+
+    background:
+        rgba(91, 61, 57, 0.72);
+
+    color: #fff7f3;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FLOWER DISPLAY
+   ========================================================= */
+
+.flower-display {
+    position: relative;
+
+    z-index: 7;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 11px;
+
+    max-height: 490px;
+
+    overflow-y: auto;
+
+    padding:
+        5px
+        7px
+        20px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #d29aa7
+        rgba(255,255,255,0.25);
+}
+
+.flower-display::-webkit-scrollbar {
+    width: 5px;
+}
+
+.flower-display::-webkit-scrollbar-thumb {
+    background: #d29aa7;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   FLOWER CARD
+   ========================================================= */
+
+.flower-card {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.75);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 249, 247, 0.94);
+
+    box-shadow:
+        0 7px 18px
+        rgba(77, 52, 52, 0.13);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.flower-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(77, 52, 52, 0.18);
+}
+
+.flower-card.has-flower {
+    border-color:
+        #c2788b;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(194, 120, 139, 0.18),
+        0 10px 25px
+        rgba(91, 57, 64, 0.16);
+}
+
+.flower-photo {
+    position: relative;
+
+    height: 105px;
+
+    overflow: hidden;
+
+    background: #f0dedb;
+}
+
+.flower-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.flower-card:hover
+.flower-photo img {
+    transform: scale(1.08);
+}
+
+.flower-quantity {
+    position: absolute;
+
+    top: 6px;
+    left: 6px;
+
+    min-width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(92, 57, 64, 0.78);
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.flower-info {
+    padding:
+        8px
+        7px
+        35px;
+
+    text-align: center;
+}
+
+.flower-info h3 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    color: #684c51;
+}
+
+.flower-info p {
+    margin-top: 4px;
+
+    color: #a47d83;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.flower-add,
+.greenery-add {
+    position: absolute;
+
+    right: 7px;
+    bottom: 7px;
+
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.9);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c8788b,
+            #b36578
+        );
+
+    color: white;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px
+        rgba(100, 52, 63, 0.2);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.flower-add:hover,
+.greenery-add:hover {
+    transform: scale(1.12);
+}
+
+.flower-add:active,
+.greenery-add:active {
+    transform: scale(0.9);
+}
+
+
+/* =========================================================
+   ROOM BOTTOM
+   ========================================================= */
+
+.room-bottom {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 17px;
+
+    padding:
+        11px
+        12px;
+
+    border:
+        1px solid
+        #e7d4d5;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 248, 246, 0.92);
+
+    box-shadow:
+        0 7px 20px
+        rgba(80, 51, 56, 0.07);
+}
+
+.basket-summary {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    padding-left: 4px;
+}
+
+.basket-summary span {
+    color: #a18488;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+.basket-summary strong {
+    color: #65494e;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   GREENHOUSE
+   ========================================================= */
+
+.greenhouse-room {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(199, 222, 190, 0.65),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(241, 208, 216, 0.5),
+            transparent 35%
+        );
+}
+
+.greenhouse-scene {
+    position: relative;
+
+    min-height: 550px;
+
+    padding:
+        65px
+        10px
+        25px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(210, 232, 204, 0.22),
+            rgba(255, 244, 239, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+
+    box-shadow:
+        0 20px 45px var(--shadow);
+
+    border:
+        4px solid
+        rgba(255,255,255,0.7);
+}
+
+.greenhouse-scene::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(240, 248, 233, 0.18);
+
+    pointer-events: none;
+}
+
+.greenery-display {
+    position: relative;
+
+    z-index: 4;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 13px;
+
+    max-height: 460px;
+
+    overflow-y: auto;
+
+    padding: 5px 7px 20px;
+}
+
+.greenery-card {
+    position: relative;
+
+    min-height: 130px;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.75);
+
+    border-radius: 18px;
+
+    background:
+        rgba(248, 252, 244, 0.94);
+
+    box-shadow:
+        0 7px 18px
+        rgba(55, 76, 53, 0.13);
+}
+
+.greenery-photo {
+    position: relative;
+
+    height: 92px;
+
+    overflow: hidden;
+}
+
+.greenery-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.greenery-quantity {
+    position: absolute;
+
+    top: 6px;
+    left: 6px;
+
+    min-width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(57, 83, 58, 0.8);
+
+    color: white;
+
+    font-size: 9px;
+}
+
+.greenery-info {
+    padding: 7px 36px 8px 9px;
+}
+
+.greenery-info h3 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    color: #536a55;
+}
+
+
+/* =========================================================
+   RIBBON ROOM
+   ========================================================= */
+
+.ribbon-room {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            #f5dbe1,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            #e9ddec,
+            transparent 30%
+        );
+}
+
+.ribbon-shop,
+.wrapping-shop {
+    position: relative;
+
+    min-height: 510px;
+
+    padding:
+        70px
+        15px
+        25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            rgba(255, 242, 244, 0.25),
+            rgba(255, 248, 244, 0.75)
+        ),
+        url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+
+    box-shadow:
+        0 20px 45px var(--shadow);
+
+    border:
+        4px solid
+        rgba(255,255,255,0.7);
+}
+
+.counter-sign {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 17px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding:
+        8px
+        18px;
+
+    border-radius: 4px;
+
+    background:
+        #70504d;
+
+    color: #fff8f3;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1.5px;
+
+    white-space: nowrap;
+}
+
+.ribbon-display {
+    position: relative;
+
+    z-index: 5;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    max-height: 430px;
+
+    overflow-y: auto;
+
+    padding: 5px;
+}
+
+.ribbon-card {
+    min-height: 85px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.8);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 249, 247, 0.93);
+
+    cursor: pointer;
+
+    color: #694f53;
+
+    box-shadow:
+        0 7px 17px
+        rgba(83, 53, 60, 0.11);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.ribbon-card:hover {
+    transform: translateY(-4px);
+}
+
+.ribbon-card.selected {
+    border-color:
+        var(--ribbon-color);
+
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--ribbon-color),
+            transparent 75%
+        );
+}
+
+.ribbon-visual {
+    font-size: 31px;
+
+    color:
+        var(--ribbon-color);
+}
+
+.ribbon-name {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+}
+
+.chosen-preview {
+    min-height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        #e6d5d5;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,250,247,0.9);
+
+    color: #987c81;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   WRAPPING
+   ========================================================= */
+
+.wrapping-room {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #f3d7d0,
+            transparent 33%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            #ded9ec,
+            transparent 33%
+        );
+}
+
+.wrapping-shop {
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(255, 242, 236, 0.2),
+            rgba(255, 247, 241, 0.72)
+        ),
+        url("https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+}
+
+.wrapping-display {
+    position: relative;
+
+    z-index: 5;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 13px;
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+    padding: 5px;
+}
+
+.wrapping-card {
+    min-height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.8);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,250,247,0.94);
+
+    color: #694f53;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 17px
+        rgba(83, 53, 60, 0.11);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.wrapping-card:hover {
+    transform: translateY(-4px);
+}
+
+.wrapping-card.selected {
+    border-color:
+        var(--paper-color);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(120, 90, 90, 0.1);
+}
+
+.paper-sample,
+.chosen-paper {
+    display: block;
+
+    width: 54px;
+    height: 44px;
+
+    border-radius:
+        5px
+        5px
+        15px
+        15px;
+
+    background:
+        var(--paper-color);
+
+    box-shadow:
+        inset 0 -8px
+        rgba(0,0,0,0.06);
+}
+
+.chosen-paper {
+    width: 35px;
+    height: 29px;
+}
+
+
+/* =========================================================
+   FINAL ROOM
+   ========================================================= */
+
+.final-room {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #f8dfe4,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            #e2eadc,
+            transparent 30%
+        );
+}
+
+.final-heading {
+    margin-bottom: 20px;
+}
+
+.final-heading p {
+    margin-top: 8px;
+
+    color: #987b80;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   FINAL BOUQUET
+   ========================================================= */
+
+.final-bouquet {
+    position: relative;
+
+    width: min(100%, 440px);
+
+    height: 430px;
+
+    margin:
+        0 auto
+        20px;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #fff8f6,
+            #f1dfe0
+        );
+
+    box-shadow:
+        0 25px 60px
+        rgba(102, 68, 74, 0.15);
+
+    border:
+        4px solid
+        rgba(255,255,255,0.85);
+}
+
+.final-paper {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    width: 190px;
+    height: 210px;
+
+    clip-path:
+        polygon(
+            7% 0,
+            93% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        8px
+        8px
+        25px
+        25px;
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(0,0,0,0.08);
+}
+
+.final-flower-area {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    bottom: 125px;
+
+    transform: translateX(-50%);
+
+    width: 92%;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 0;
+
+    padding: 5px 15px;
+}
+
+.final-flower-image {
+    width: 67px;
+    height: 67px;
+
+    margin:
+        -7px
+        -6px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 5px 12px
+        rgba(76, 48, 54, 0.17);
+
+    transform:
+        rotate(var(--flower-angle));
+
+    animation:
+        flowerPop
+        0.6s
+        var(--flower-delay)
+        backwards
+        ease-out;
+}
+
+@keyframes flowerPop {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.2)
+            rotate(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(var(--flower-angle));
+    }
+}
+
+.final-greenery-area {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 50%;
+    bottom: 110px;
+
+    transform: translateX(-50%);
+
+    width: 85%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.final-green-image {
+    width: 55px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius:
+        50%
+        10px;
+
+    margin: -10px;
+
+    opacity: 0.8;
+
+    transform:
+        rotate(
+            calc(
+                var(--green-angle, 0deg)
+            )
+        );
+}
+
+.final-ribbon {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    bottom: 100px;
+
+    transform: translateX(-50%);
+
+    width: 53px;
+    height: 53px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(71, 47, 51, 0.2);
+}
+
+
+/* =========================================================
+   FINAL DETAILS
+   ========================================================= */
+
+.final-details {
+    width: min(100%, 430px);
+
+    margin:
+        0 auto
+        18px;
+
+    padding:
+        18px
+        20px;
+
+    border:
+        1px solid
+        #e7d6d5;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,250,247,0.9);
+
+    text-align: left;
+
+    box-shadow:
+        0 8px 20px
+        rgba(85, 54, 60, 0.06);
+}
+
+.final-details h3 {
+    margin-bottom: 9px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    color: #724e55;
+}
+
+.final-details h4 {
+    margin:
+        12px
+        0
+        5px;
+
+    color: #68806a;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.final-details p {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 4px 0;
+
+    color: #806a6d;
+
+    font-size: 12px;
+}
+
+.final-details strong {
+    color: #a36575;
+}
+
+.final-note {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin:
+        15px
+        auto
+        22px;
+
+    color: #a27d83;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+}
+
+.final-note span {
+    color: #c78391;
+}
+
+.shop-button.accepted {
+    background:
+        linear-gradient(
+            135deg,
+            #789174,
+            #91a98c
+        );
+}
+
+.text-button {
+    display: block;
+
+    margin:
+        16px
+        auto
+        0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #a77c84;
+
+    font-size: 11px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BASKET POPUP
+   ========================================================= */
+
+.basket-popup {
+    position: fixed;
+
+    z-index: 500;
+
+    top: 80px;
+    right: 15px;
+
+    width: min(
+        calc(100% - 30px),
+        330px
+    );
+
+    max-height: 70vh;
+
+    overflow-y: auto;
+
+    padding: 23px;
+
+    border:
+        1px solid
+        #e6d1d4;
+
+    border-radius: 23px;
+
+    background:
+        rgba(255,250,247,0.97);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(68, 45, 49, 0.2);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-10px)
+        scale(0.96);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.basket-popup.open {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.basket-popup h3 {
+    margin-bottom: 15px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+
+    color: #704e54;
+}
+
+.close-popup {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f0dce0;
+
+    color: #8b626c;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+.basket-items {
+    border-top:
+        1px solid
+        #eadbd8;
+
+    border-bottom:
+        1px solid
+        #eadbd8;
+
+    padding:
+        9px
+        0;
+}
+
+.basket-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 6px 0;
+
+    color: #765e63;
+
+    font-size: 12px;
+}
+
+.basket-item strong {
+    color: #ae6878;
+}
+
+.basket-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 13px;
+
+    color: #8b7074;
+
+    font-size: 11px;
+}
+
+.basket-total strong {
+    color: #a85e70;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+
+    z-index: 600;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translate(-50%, 20px);
+
+    padding:
+        10px
+        17px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(90, 57, 64, 0.92);
+
+    color: white;
+
+    font-size: 11px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(60, 40, 44, 0.2);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .shop-bar {
+        height: 64px;
+    }
+
+    .shop-progress {
+        top: 64px;
+    }
+
+    #shop {
+        padding-top: 68px;
+    }
+
+    .brand-name {
+        font-size: 21px;
+    }
+
+    .brand-tagline {
+        font-size: 7px;
+    }
+
+    .brand-flower {
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+    .shop-room {
+        min-height:
+            calc(100vh - 68px);
+
+        padding:
+            22px
+            8px
+            30px;
+    }
+
+    .room-header h2 {
+        font-size: 38px;
+    }
+
+    .room-header p {
+        font-size: 11px;
+    }
+
+    .entrance-content {
+        padding:
+            15px
+            8px;
+    }
+
+    .entrance-content h1 {
+        font-size: 54px;
+    }
+
+    .entrance-content h2 {
+        font-size: 27px;
+    }
+
+    .entrance-message {
+        font-size: 18px;
+    }
+
+    .shop-scene {
+        min-height: 550px;
+
+        padding:
+            62px
+            7px
+            15px;
+
+        border-radius: 25px;
+    }
+
+    .flower-display {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+
+        max-height: 465px;
+    }
+
+    .flower-photo {
+        height: 115px;
+    }
+
+    .flower-info h3 {
+        font-size: 17px;
+    }
+
+    .room-bottom {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .basket-summary {
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .room-bottom .shop-button {
+        width: 100%;
+    }
+
+    .greenhouse-scene {
+        min-height: 530px;
+
+        padding:
+            62px
+            7px
+            15px;
+    }
+
+    .greenery-display {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        max-height: 445px;
+    }
+
+    .ribbon-shop,
+    .wrapping-shop {
+        min-height: 520px;
+
+        padding:
+            68px
+            9px
+            15px;
+    }
+
+    .ribbon-display,
+    .wrapping-display {
+        gap: 9px;
+    }
+
+    .final-bouquet {
+        height: 390px;
+    }
+
+    .final-flower-image {
+        width: 57px;
+        height: 57px;
+    }
+
+    .final-paper {
+        width: 175px;
+        height: 190px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .flower-photo {
+        height: 95px;
+    }
+
+    .flower-info {
+        padding:
+            7px
+            5px
+            34px;
+    }
+
+    .flower-info h3 {
+        font-size: 14px;
+    }
+
+    .flower-info p {
+        font-size: 7px;
+    }
+
+    .flower-add {
+        width: 27px;
+        height: 27px;
+    }
+
+    .entrance-content h1 {
+        font-size: 47px;
+    }
+
+    .entrance-content h2 {
+        font-size: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible {
+    outline:
+        3px solid
+        #c78694;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
