@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f7dfe4"
+    >
+
+    <title>Bloom & Co. — A Little Bouquet For You</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         FLOATING DECORATION
+         ========================================= -->
+
+    <div class="floating-petal petal-one">✿</div>
+    <div class="floating-petal petal-two">❀</div>
+    <div class="floating-petal petal-three">✿</div>
+
+
+    <!-- =========================================
+         TOP SHOP BAR
+         ========================================= -->
+
+    <header class="shop-bar">
+
+        <div class="shop-brand">
+
+            <span class="brand-flower">🌷</span>
+
+            <div>
+                <div class="brand-name">
+                    Bloom & Co.
+                </div>
+
+                <div class="brand-tagline">
+                    flowers, feelings & little things
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="bouquet-basket"
+            id="basket-button"
+        >
+
+            <span class="basket-icon">
+                🧺
+            </span>
+
+            <span
+                id="basket-count"
+                class="basket-count"
+            >
+                0
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         PROGRESS
+         ========================================= -->
+
+    <div class="shop-progress">
+
+        <div
+            id="progress-fill"
+            class="progress-fill"
+        ></div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         MAIN SHOP
+         ========================================= -->
+
+    <main id="shop">
+
+
+        <!-- =====================================
+             ROOM 0 — ENTRANCE
+             ===================================== -->
+
+        <section
+            id="room-0"
+            class="shop-room active"
+        >
+
+            <div class="entrance-overlay"></div>
+
+            <div class="entrance-content">
+
+                <div class="little-sign">
+                    ✦ BLOOM & CO. ✦
+                </div>
+
+
+                <div class="welcome-flower">
+                    🌸
+                </div>
+
+
+                <p class="tiny-heading">
+                    A little something for you
+                </p>
+
+
+                <h1>
+                    Hello, Krishna.
+                </h1>
+
+
+                <h2>
+                    In case you never got
+                    <br>
+                    a flower bouquet
+                    <br>
+                    of your choice...
+                </h2>
+
+
+                <p class="entrance-message">
+                    I thought you should have
+                    an entire flower shop instead.
+                </p>
+
+
+                <p class="entrance-small">
+                    Come inside.
+                    <br>
+                    Pick whatever makes
+                    your bouquet feel like yours.
+                </p>
+
+
+                <button
+                    id="enter-shop"
+                    class="shop-button big-button"
+                >
+                    ENTER THE FLOWER SHOP
+                    <span>→</span>
+                </button>
+
+
+                <div class="entrance-decoration">
+                    ❀　✿　❀
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 1 — FLOWER ROOM I
+             ===================================== -->
+
+        <section
+            id="room-1"
+            class="shop-room flower-room"
+        >
+
+            <div class="room-header">
+
+                <span class="room-number">
+                    ROOM I
+                </span>
+
+                <h2>
+                    The Flower Room
+                </h2>
+
+                <p>
+                    Take your time.
+                    <br>
+                    Pick as many as you want.
+                </p>
+
+            </div>
+
+
+            <div class="shop-scene">
+
+                <div class="shop-window">
+                    <span>FRESH FLOWERS</span>
+                </div>
+
+
+                <div
+                    id="flower-grid-1"
+                    class="flower-display"
+                >
+                    <!-- JavaScript creates the 20 flowers here -->
+                </div>
+
+            </div>
+
+
+            <div class="room-bottom">
+
+                <div class="basket-summary">
+
+                    <span>
+                        Your bouquet
+                    </span>
+
+                    <strong>
+                        <span id="room1-count">
+                            0
+                        </span>
+                        flowers
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="room1-next"
+                    class="shop-button"
+                >
+                    GO TO THE NEXT ROOM
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 2 — FLOWER ROOM II
+             ===================================== -->
+
+        <section
+            id="room-2"
+            class="shop-room flower-room"
+        >
+
+            <div class="room-header">
+
+                <span class="room-number">
+                    ROOM II
+                </span>
+
+                <h2>
+                    More Flowers
+                </h2>
+
+                <p>
+                    Because apparently
+                    <br>
+                    one flower shop wasn't enough.
+                </p>
+
+            </div>
+
+
+            <div class="shop-scene second-scene">
+
+                <div class="shop-window">
+                    <span>MORE TO FALL FOR</span>
+                </div>
+
+
+                <div
+                    id="flower-grid-2"
+                    class="flower-display"
+                >
+                    <!-- JavaScript creates another 20 flowers -->
+                </div>
+
+            </div>
+
+
+            <div class="room-bottom">
+
+                <div class="basket-summary">
+
+                    <span>
+                        Bouquet so far
+                    </span>
+
+                    <strong>
+                        <span id="room2-count">
+                            0
+                        </span>
+                        flowers
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="room2-next"
+                    class="shop-button"
+                >
+                    STEP INTO THE GREENHOUSE
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 3 — GREENHOUSE
+             ===================================== -->
+
+        <section
+            id="room-3"
+            class="shop-room greenhouse-room"
+        >
+
+            <div class="room-header">
+
+                <span class="room-number">
+                    ROOM III
+                </span>
+
+                <h2>
+                    The Greenhouse
+                </h2>
+
+                <p>
+                    Every pretty bouquet
+                    <br>
+                    needs a little green.
+                </p>
+
+            </div>
+
+
+            <div class="greenhouse-scene">
+
+                <div
+                    id="greenery-grid"
+                    class="greenery-display"
+                >
+                    <!-- JavaScript creates greenery -->
+                </div>
+
+            </div>
+
+
+            <div class="room-bottom">
+
+                <div class="basket-summary">
+
+                    <span>
+                        Greenery
+                    </span>
+
+                    <strong>
+                        <span id="greenery-count">
+                            0
+                        </span>
+                        added
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="room3-next"
+                    class="shop-button"
+                >
+                    TO THE RIBBON COUNTER
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 4 — RIBBON COUNTER
+             ===================================== -->
+
+        <section
+            id="room-4"
+            class="shop-room ribbon-room"
+        >
+
+            <div class="room-header">
+
+                <span class="room-number">
+                    ROOM IV
+                </span>
+
+                <h2>
+                    The Ribbon Counter
+                </h2>
+
+                <p>
+                    The little detail
+                    <br>
+                    that ties everything together.
+                </p>
+
+            </div>
+
+
+            <div class="ribbon-shop">
+
+                <div class="counter-sign">
+                    CHOOSE YOUR RIBBON
+                </div>
+
+
+                <div
+                    id="ribbon-grid"
+                    class="ribbon-display"
+                >
+                    <!-- JavaScript creates ribbons -->
+                </div>
+
+            </div>
+
+
+            <div
+                id="ribbon-chosen"
+                class="chosen-preview"
+            >
+                No ribbon chosen yet.
+            </div>
+
+
+            <div class="room-bottom">
+
+                <button
+                    id="room4-next"
+                    class="shop-button"
+                >
+                    NEXT — WRAP IT UP
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 5 — WRAPPING COUNTER
+             ===================================== -->
+
+        <section
+            id="room-5"
+            class="shop-room wrapping-room"
+        >
+
+            <div class="room-header">
+
+                <span class="room-number">
+                    ROOM V
+                </span>
+
+                <h2>
+                    The Wrapping Counter
+                </h2>
+
+                <p>
+                    Choose the paper
+                    <br>
+                    your flowers will go home in.
+                </p>
+
+            </div>
+
+
+            <div class="wrapping-shop">
+
+                <div class="counter-sign">
+                    PICK YOUR PAPER
+                </div>
+
+
+                <div
+                    id="wrapping-grid"
+                    class="wrapping-display"
+                >
+                    <!-- JavaScript creates wrapping -->
+                </div>
+
+            </div>
+
+
+            <div
+                id="wrapping-chosen"
+                class="chosen-preview"
+            >
+                No wrapping chosen yet.
+            </div>
+
+
+            <div class="room-bottom">
+
+                <button
+                    id="room5-next"
+                    class="shop-button"
+                >
+                    FINISH THE BOUQUET
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ROOM 6 — FINAL BOUQUET
+             ===================================== -->
+
+        <section
+            id="room-6"
+            class="shop-room final-room"
+        >
+
+            <div class="final-heading">
+
+                <span class="room-number">
+                    YOUR ORDER
+                </span>
+
+                <h2>
+                    Here's Your Bouquet,
+                    Krishna.
+                </h2>
+
+                <p>
+                    Made entirely by you.
+                </p>
+
+            </div>
+
+
+            <div
+                id="final-bouquet"
+                class="final-bouquet"
+            >
+
+                <!-- JavaScript builds bouquet here -->
+
+            </div>
+
+
+            <div
+                id="final-details"
+                class="final-details"
+            >
+
+                <!-- JavaScript fills details -->
+
+            </div>
+
+
+            <div class="final-note">
+
+                <span>✿</span>
+
+                <p>
+                    No flowers were harmed
+                    in the making of this bouquet.
+                </p>
+
+                <span>✿</span>
+
+            </div>
+
+
+            <button
+                id="final-button"
+                class="shop-button big-button"
+            >
+                KEEP MY BOUQUET 💐
+            </button>
+
+
+            <button
+                id="start-again"
+                class="text-button"
+            >
+                Make another bouquet
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         BASKET POPUP
+         ========================================= -->
+
+    <div
+        id="basket-popup"
+        class="basket-popup"
+    >
+
+        <button
+            id="close-basket"
+            class="close-popup"
+        >
+            ×
+        </button>
+
+
+        <h3>
+            Your Bouquet
+        </h3>
+
+
+        <div
+            id="basket-items"
+            class="basket-items"
+        >
+            Nothing yet...
+        </div>
+
+
+        <div class="basket-total">
+
+            <span>
+                Total flowers
+            </span>
+
+            <strong id="basket-total">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         LITTLE TOAST MESSAGE
+         ========================================= -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+        Flower added 🌷
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
